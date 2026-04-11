@@ -1,61 +1,78 @@
 import { ArrowUpRight, Tag, ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 type Filter = 'all' | 'brand' | 'demand' | 'product' | 'integrated'
 
 const campaigns = [
   {
     title: 'Power to the Marketer',
-    company: 'SAP Emarsys',
+    company: 'Emarsys',
     type: 'brand' as const,
-    tags: ['Brand Campaign', 'Events', 'Hybrid Festival'],
-    summary: 'Global brand campaign and hybrid festival. Award-winning event series running across multiple years — combining in-person experiences with virtual reach to drive both brand and pipeline.',
+    tags: ['Brand', 'Events', 'Hybrid', 'Global'],
+    summary: 'Global brand campaign and hybrid festival platform combining in-person experience with virtual reach to drive brand awareness and pipeline generation across multiple years.',
     stats: [
-      { label: 'Pipeline Generated', value: 'Multi-million' },
-      { label: 'Format', value: 'Hybrid Festival' },
-      { label: 'Scale', value: 'Global' },
+      { label: 'Pipeline Generated', value: '£7.68M' },
+      { label: 'Revenue', value: '£1.45M' },
+      { label: 'Recognition', value: 'Award-winning' },
     ],
     color: 'purple',
     images: [
-      { src: '', label: 'Festival stage & branding' },
-      { src: '', label: 'Event marketing materials' },
-      { src: '', label: 'Campaign performance dashboard' },
+      { src: '/campaigns/power-to-the-marketer/1.png', label: 'Power to the Marketer homepage' },
+      { src: '/campaigns/power-to-the-marketer/2.png', label: 'Omnichannel platform overview' },
+      { src: '/campaigns/power-to-the-marketer/3.jpeg', label: 'Shoptalk event promotion' },
+      { src: '/campaigns/power-to-the-marketer/4.jpeg', label: 'Social campaign creative' },
+      { src: '/campaigns/power-to-the-marketer/5.jpeg', label: 'Brand campaign asset' },
+      { src: '/campaigns/power-to-the-marketer/hype-video.mp4', label: 'Festival hype video', type: 'video' as const },
+      { src: '/campaigns/power-to-the-marketer/6.jpeg', label: 'Festival live event' },
+      { src: '/campaigns/power-to-the-marketer/7.jpeg', label: 'Event branding' },
+      { src: '/campaigns/power-to-the-marketer/8.jpeg', label: 'Campaign results' },
+      { src: '/campaigns/power-to-the-marketer/9.jpeg', label: 'Paid media creative' },
     ],
   },
   {
     title: 'Omnichannel Difference',
-    company: 'SAP Emarsys',
+    company: 'Emarsys',
     type: 'integrated' as const,
-    tags: ['Product Campaign', 'Content', 'Analyst'],
-    summary: 'Product-led integrated campaign focused on omnichannel marketing differentiation. Combined thought leadership, analyst research, content syndication, and paid media across regions.',
+    tags: ['Product', 'Integrated', 'Analyst', 'Global'],
+    summary: 'Product-led integrated campaign focused on omnichannel marketing differentiation, combining analyst research, thought leadership, paid media and content syndication across regions.',
     stats: [
-      { label: 'Campaign Type', value: 'Product-led' },
-      { label: 'Channels', value: 'Omnichannel' },
-      { label: 'Regions', value: 'Global' },
+      { label: 'Pipeline Generated', value: '£671K' },
+      { label: 'ARR', value: '£190K' },
+      { label: 'Positioning', value: 'Analyst-led' },
     ],
     color: 'green',
     images: [
-      { src: '', label: 'Campaign creative assets' },
-      { src: '', label: 'Content syndication results' },
-      { src: '', label: 'Regional activation' },
+      { src: '/campaigns/omnichannel-difference/2.jpeg', label: 'Campaign creative' },
+      { src: '/campaigns/omnichannel-difference/1.jpeg', label: 'Digital ads activation creative' },
+      { src: '/campaigns/omnichannel-difference/3.jpeg', label: 'Thought leadership content' },
+      { src: '/campaigns/omnichannel-difference/4.jpeg', label: 'Analyst research asset' },
+      { src: '/campaigns/omnichannel-difference/5.jpeg', label: 'Content syndication' },
+      { src: '/campaigns/omnichannel-difference/6.jpeg', label: 'Paid media creative' },
+      { src: '/campaigns/omnichannel-difference/7.jpeg', label: 'Regional activation' },
+      { src: '/campaigns/omnichannel-difference/8.jpeg', label: 'Campaign results' },
     ],
   },
   {
-    title: 'Retail Renaissance / Revival',
-    company: 'SAP Emarsys',
+    title: 'Retail Renaissance & Retail Revival',
+    company: 'Emarsys',
     type: 'demand' as const,
-    tags: ['Virtual Events', 'Demand Gen', 'Webinar Series'],
+    tags: ['Demand Gen', 'Virtual Events', 'Hybrid'],
     summary: 'Award-winning hybrid event series that became a flagship demand generation program. Combined virtual and in-person formats to maximise reach and pipeline creation.',
     stats: [
-      { label: 'Awards', value: 'Multiple' },
-      { label: 'Format', value: 'Hybrid' },
-      { label: 'Impact', value: 'Pipeline + Brand' },
+      { label: 'Pipeline Created', value: '£3.31M' },
+      { label: 'Revenue Generated', value: '£1.1M' },
+      { label: 'Recognition', value: '2x industry awards' },
     ],
     color: 'purple',
     images: [
-      { src: '', label: 'Event series branding' },
-      { src: '', label: 'Virtual event platform' },
-      { src: '', label: 'Award entries' },
+      { src: '/campaigns/retail-renaissance/0.jpeg', label: 'Retail Renaissance hero' },
+      { src: '/campaigns/retail-renaissance/1.jpeg', label: 'Event branding' },
+      { src: '/campaigns/retail-renaissance/2.jpeg', label: 'Event promotion' },
+      { src: '/campaigns/retail-renaissance/3.jpeg', label: 'Speaker creative' },
+      { src: '/campaigns/retail-renaissance/4.jpg', label: 'Event activation' },
+      { src: '/campaigns/retail-renaissance/5.webp', label: 'Virtual event platform' },
+      { src: '/campaigns/retail-renaissance/6.webp', label: 'Campaign creative' },
+      { src: '/campaigns/retail-renaissance/7.png', label: 'Retail Revival on-demand' },
     ],
   },
   {
@@ -63,36 +80,36 @@ const campaigns = [
     company: 'Clicktale',
     type: 'integrated' as const,
     tags: ['Research', 'Influencer', 'Media Partnership'],
-    summary: 'Unique research report with Brian Solis influencer partnership, CX Network media partnership, HotTopics video series, and 3 customer webinars.',
+    summary: 'Research-led campaign featuring Brian Solis influencer partnership, CX Network media partnership, HotTopics video series and customer webinars.',
     stats: [
-      { label: 'New Business Pipeline', value: '$1.8M' },
+      { label: 'New Business Pipeline', value: '$1.87M' },
       { label: 'Impressions', value: '7M' },
       { label: 'MQLs', value: '320' },
     ],
     color: 'green',
     images: [
-      { src: '', label: 'Research report' },
-      { src: '', label: 'Brian Solis partnership' },
-      { src: '', label: 'CX Network media' },
-      { src: '', label: 'HotTopics video series' },
+      { src: '/campaigns/defining-digital-experience/1.png', label: 'Research report' },
+      { src: '/campaigns/defining-digital-experience/2.png', label: 'Brian Solis partnership' },
+      { src: '/campaigns/defining-digital-experience/3.png', label: 'CX Network media' },
+      { src: '/campaigns/defining-digital-experience/4.png', label: 'HotTopics video series' },
     ],
   },
   {
     title: 'Digital Body Language',
     company: 'Clicktale',
     type: 'brand' as const,
-    tags: ['Brand', 'Positioning', 'Creative'],
-    summary: 'Brand positioning campaign for Clicktale telling the story of digital customer behaviour. Integrated across brand, product and demand to drive measurable results.',
+    tags: ['Brand', 'Positioning', 'Integrated', 'Global'],
+    summary: 'Brand positioning campaign telling the story of digital customer behaviour. Integrated across brand, product and demand functions globally.',
     stats: [
-      { label: 'Type', value: 'Brand Positioning' },
-      { label: 'Approach', value: 'Brand x Product x Demand' },
-      { label: 'Scope', value: 'Global' },
+      { label: 'Hand Raises', value: '30% uplift' },
+      { label: 'Positioning', value: 'Global platform' },
+      { label: 'Activation', value: 'Cross-functional' },
     ],
     color: 'purple',
     images: [
-      { src: '', label: 'Brand creative' },
-      { src: '', label: 'Campaign landing page' },
-      { src: '', label: 'Digital assets' },
+      { src: '/campaigns/digital-body-language/1.jpg', label: 'Brand creative' },
+      { src: '/campaigns/digital-body-language/2.png', label: 'Campaign landing page' },
+      { src: '/campaigns/digital-body-language/3.jpeg', label: 'Digital assets' },
     ],
   },
   {
@@ -100,53 +117,203 @@ const campaigns = [
     company: 'Emarsys',
     type: 'demand' as const,
     tags: ['Content', 'Thought Leadership', 'Demand Gen'],
-    summary: 'Annual predictions / counter-predictions content campaign designed to generate awareness and pipeline through provocative thought leadership.',
+    summary: 'Annual predictions / counter-predictions thought leadership POV campaign designed to generate awareness and pipeline through provocative industry commentary.',
     stats: [
-      { label: 'Frequency', value: 'Annual' },
-      { label: 'Type', value: 'Thought Leadership' },
-      { label: 'Impact', value: 'Pipeline + Brand' },
+      { label: 'Pipeline Created', value: '£1.64M' },
+      { label: 'Revenue Generated', value: '£1.2M' },
+      { label: 'Engagement', value: 'Organic influencer' },
     ],
     color: 'green',
     images: [
-      { src: '', label: 'Report design' },
-      { src: '', label: 'Social promotion' },
-      { src: '', label: 'Landing experience' },
+      { src: '/campaigns/unpredictions/3.webp', label: 'Landing experience' },
+      { src: '/campaigns/unpredictions/2.jpg', label: 'Social promotion' },
+      { src: '/campaigns/unpredictions/4.jpeg', label: 'Campaign creative' },
+      { src: '/campaigns/unpredictions/6.png', label: 'Digital activation' },
+      { src: '/campaigns/unpredictions/7.jpg', label: 'Industry commentary' },
+      { src: '/campaigns/unpredictions/8.jpg', label: 'Influencer engagement' },
+      { src: '/campaigns/unpredictions/9.png', label: 'Demand generation asset' },
+      { src: '/campaigns/unpredictions/10.png', label: 'Campaign results' },
     ],
   },
   {
     title: 'Mobile Wallet',
     company: 'Emarsys',
     type: 'product' as const,
-    tags: ['Product Launch', 'Integrated'],
-    summary: 'Integrated product launch campaign for a new mobile wallet capability, combining product marketing, demand generation and customer marketing.',
+    tags: ['Product Launch', 'Integrated', 'Global'],
+    summary: 'Integrated product launch campaign for a new mobile wallet capability focusing on existing customers. Leveraged at the top of funnel for short burst campaign across PR, demand gen & digital.',
     stats: [
-      { label: 'Type', value: 'Product Launch' },
-      { label: 'Approach', value: 'Integrated' },
-      { label: 'Scope', value: 'Global' },
+      { label: 'Cross-sell Pipeline', value: '£533K ARR' },
+      { label: 'NBS Revenue', value: '£60K ARR' },
+      { label: 'ROAS', value: '4x' },
     ],
     color: 'purple',
     images: [
-      { src: '', label: 'Product launch assets' },
-      { src: '', label: 'Go-to-market plan' },
-      { src: '', label: 'Customer marketing' },
+      { src: '/campaigns/mobile-wallet/2.gif', label: 'Product demo animation' },
+      { src: '/campaigns/mobile-wallet/0.mp4', label: 'Mobile Wallet product video', type: 'video' as const },
+      { src: '/campaigns/mobile-wallet/1.jpg', label: 'Mobile Wallet hero creative' },
+      { src: '/campaigns/mobile-wallet/3.gif', label: 'Wallet pass experience' },
+      { src: '/campaigns/mobile-wallet/4.gif', label: 'Customer journey animation' },
+      { src: '/campaigns/mobile-wallet/5.jpeg', label: 'Campaign creative' },
+      { src: '/campaigns/mobile-wallet/6.png', label: 'Product marketing asset' },
+      { src: '/campaigns/mobile-wallet/7.mp4', label: 'Campaign launch video', type: 'video' as const },
+      { src: '/campaigns/mobile-wallet/8.webp', label: 'Mobile Wallet feature visual' },
     ],
   },
   {
-    title: 'Southbank Centre',
-    company: 'immediate future',
+    title: 'Changing Britain Festival',
+    company: 'Southbank Centre',
     type: 'brand' as const,
     tags: ['Consumer', 'Social', 'Brand'],
-    summary: 'Consumer brand campaign from the agency side — social-first creative for one of London\'s iconic cultural venues.',
+    summary: 'Consumer demand campaign (agency-side) delivering social-first and driving ticket sales for one of London\'s iconic cultural venues.',
     stats: [
-      { label: 'Sector', value: 'Consumer / Arts' },
-      { label: 'Channel', value: 'Social-first' },
-      { label: 'Type', value: 'Brand Campaign' },
+      { label: 'Approach', value: 'Social-first' },
+      { label: 'Recognition', value: 'Award-winning' },
+      { label: 'Sector', value: 'Arts & culture' },
     ],
     color: 'green',
     images: [
-      { src: '', label: 'Social creative' },
-      { src: '', label: 'Campaign performance' },
-      { src: '', label: 'Brand assets' },
+      { src: '/campaigns/changing-britain/1.png', label: 'Social creative' },
+    ],
+  },
+  {
+    title: 'Customer Loyalty Index',
+    company: 'SAP Emarsys',
+    type: 'demand' as const,
+    tags: ['Media', 'Thought Leadership', 'Digital'],
+    summary: 'Multi-year serial thought leadership campaign integrated across PR, events, digital and demand.',
+    stats: [
+      { label: 'Influenced Pipeline', value: '£6.25M' },
+      { label: 'Media Placements', value: '2,000+' },
+      { label: 'Engagement', value: 'Partner & media' },
+    ],
+    color: 'purple',
+    images: [
+      { src: '/campaigns/customer-loyalty/1.jpg', label: 'Research report' },
+      { src: '/campaigns/customer-loyalty/2.png', label: 'Media coverage' },
+      { src: '/campaigns/customer-loyalty/3.webp', label: 'Event activation' },
+      { src: '/campaigns/customer-loyalty/4.png', label: 'Campaign creative' },
+      { src: '/campaigns/customer-loyalty/5.jpeg', label: 'Thought leadership asset' },
+      { src: '/campaigns/customer-loyalty/6.jpeg', label: 'Paid media creative' },
+    ],
+  },
+  {
+    title: 'AI',
+    company: 'SAP Emarsys',
+    type: 'product' as const,
+    tags: ['Brand', 'Positioning', 'Integrated', 'Global'],
+    summary: 'Combining new product launch AI capabilities with thought leadership, events, digital and demand.',
+    stats: [
+      { label: 'Impressions', value: '10M' },
+      { label: 'Engagements', value: '223K' },
+      { label: 'Pipeline Created', value: '£670K' },
+    ],
+    color: 'green',
+    images: [
+      { src: '/campaigns/ai/1.jpeg', label: 'AI product launch hero' },
+      { src: '/campaigns/ai/2.jpeg', label: 'Campaign creative' },
+      { src: '/campaigns/ai/3.mp4', label: 'AI capabilities video', type: 'video' as const },
+      { src: '/campaigns/ai/4.jpeg', label: 'Thought leadership content' },
+      { src: '/campaigns/ai/5.jpeg', label: 'Event activation' },
+      { src: '/campaigns/ai/6.webp', label: 'Digital campaign asset' },
+      { src: '/campaigns/ai/7.png', label: 'Product marketing visual' },
+      { src: '/campaigns/ai/8.jpeg', label: 'Demand generation creative' },
+      { src: '/campaigns/ai/9.jpeg', label: 'Social media activation' },
+      { src: '/campaigns/ai/10.jpeg', label: 'Campaign results' },
+    ],
+  },
+  {
+    title: 'Consumer Products',
+    company: 'SAP Emarsys',
+    type: 'integrated' as const,
+    tags: ['Demand Gen', 'Product', 'Integrated'],
+    summary: 'Industry expansion campaign driving growth through new product messaging and multi-channel activation.',
+    stats: [
+      { label: 'Pipeline', value: 'TBC' },
+      { label: 'Revenue', value: 'TBC' },
+      { label: 'Type', value: 'Industry expansion' },
+    ],
+    color: 'purple',
+    images: [
+      { src: '', label: 'Campaign creative' },
+      { src: '', label: 'Multi-channel activation' },
+      { src: '', label: 'Product messaging' },
+    ],
+  },
+  {
+    title: 'Retail Talks',
+    company: 'Emarsys',
+    type: 'demand' as const,
+    tags: ['Brand', 'Demand Gen', 'Customer Stories', 'Digital'],
+    summary: 'Accelerated customer series blending real customer stories, strategic thinking and tactical execution for forward-thinking omnichannel retailers.',
+    stats: [
+      { label: 'Pipeline Created', value: '£1.29M' },
+      { label: 'Revenue Generated', value: '£717K' },
+      { label: 'Format', value: '10 episode series' },
+    ],
+    color: 'green',
+    images: [
+      { src: '/campaigns/retail-talks/3.webp', label: 'Series branding' },
+      { src: '/campaigns/retail-talks/4.jpg', label: 'Episode promotion' },
+      { src: '/campaigns/retail-talks/5.jpg', label: 'Series campaign asset' },
+    ],
+  },
+  {
+    title: 'Product Release & Use Case TOFU',
+    company: 'SAP Emarsys',
+    type: 'demand' as const,
+    tags: ['Product Marketing', 'Demand Gen', 'Customer Stories', 'Digital'],
+    summary: 'Built new layer of specific use case content and product release innovation to drive net new prospects.',
+    stats: [
+      { label: 'Pipeline Created', value: '£1.07M' },
+      { label: 'Revenue Generated', value: '£785K' },
+      { label: 'Model', value: 'Repeatable program' },
+    ],
+    color: 'purple',
+    images: [
+      { src: '', label: 'Use case content' },
+      { src: '', label: 'Product release assets' },
+      { src: '', label: 'TOFU activation' },
+    ],
+  },
+  {
+    title: 'Customer Stories Rolling Thunder',
+    company: 'SAP Emarsys',
+    type: 'brand' as const,
+    tags: ['Brand', 'Demand Gen', 'Customer Stories', 'Digital'],
+    summary: 'Synchronized customer advocacy push across social, employee enablement and email to counter-market analyst wave miss.',
+    stats: [
+      { label: 'Demo Requests', value: '15% uplift' },
+      { label: 'Impressions', value: '3M' },
+      { label: 'Web Traffic', value: '30% increase' },
+    ],
+    color: 'green',
+    images: [
+      { src: '', label: 'Customer advocacy assets' },
+      { src: '', label: 'Social activation' },
+      { src: '', label: 'Employee enablement' },
+    ],
+  },
+  {
+    title: 'Kevin the Carrot',
+    company: 'Aldi',
+    type: 'brand' as const,
+    tags: ['Brand', 'Customer Engagement', 'Social'],
+    summary: 'Award-winning digital layer of multi-channel Christmas campaign for UK supermarket. Combining moment-driven organic social with highly impactful localized paid media.',
+    stats: [
+      { label: 'Ad Engagement', value: '50%' },
+      { label: 'Press Coverage', value: '100+ articles' },
+      { label: 'Recognition', value: 'Multi-award winning' },
+    ],
+    color: 'purple',
+    images: [
+      { src: '/campaigns/kevin-the-carrot/1.png', label: 'Christmas campaign creative' },
+      { src: '/campaigns/kevin-the-carrot/2.png', label: 'Social engagement' },
+      { src: '/campaigns/kevin-the-carrot/3.png', label: 'Paid media results' },
+      { src: '/campaigns/kevin-the-carrot/4.png', label: 'Campaign creative' },
+      { src: '/campaigns/kevin-the-carrot/5.png', label: 'Organic social content' },
+      { src: '/campaigns/kevin-the-carrot/6.png', label: 'Localized paid media' },
+      { src: '/campaigns/kevin-the-carrot/7.png', label: 'Brand activation' },
+      { src: '/campaigns/kevin-the-carrot/8.png', label: 'Campaign results' },
     ],
   },
 ]
@@ -172,49 +339,62 @@ const colorMap = {
   },
 }
 
-/* ── Single-image viewer with hover arrows ── */
+/* ── Single-image/video viewer with hover arrows ── */
 
 function ImageViewer({ images, colors, slideIdx, onSlideChange }: {
-  images: { src: string; label: string }[]
+  images: { src: string; label: string; type?: 'video' }[]
   colors: typeof colorMap['purple']
   slideIdx: number
   onSlideChange: (idx: number) => void
 }) {
-  const img = images[slideIdx]
+  const item = images[slideIdx]
   const hasPrev = slideIdx > 0
   const hasNext = slideIdx < images.length - 1
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const isVideo = item.type === 'video'
 
   return (
     <div className="group/viewer relative">
-      {/* 16:9 aspect ratio container */}
-      <div className="relative aspect-video overflow-hidden">
-        {img.src ? (
-          <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
-        ) : (
+      {/* 16:9 aspect ratio container — white bg so images of any ratio sit uniformly */}
+      <div className="relative aspect-video overflow-hidden bg-white">
+        {!item.src ? (
           <div className={`w-full h-full ${colors.placeholderBg} flex flex-col items-center justify-center gap-3`}>
             <ImageIcon className="w-8 h-8 text-gray-300" />
-            <span className="text-xs text-gray-400 text-center px-4 leading-relaxed">{img.label}</span>
+            <span className="text-xs text-gray-400 text-center px-4 leading-relaxed">{item.label}</span>
           </div>
+        ) : isVideo ? (
+          <video
+            ref={videoRef}
+            src={item.src}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-contain bg-white"
+          >
+            <track kind="descriptions" label={item.label} />
+          </video>
+        ) : (
+          <img src={item.src} alt={item.label} className="w-full h-full object-contain bg-white" />
         )}
 
         {/* Hover arrows */}
         {images.length > 1 && (
           <>
             <button
-              onClick={() => hasPrev && onSlideChange(slideIdx - 1)}
+              onClick={() => { if (hasPrev) { videoRef.current?.pause(); onSlideChange(slideIdx - 1) } }}
               className={`absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 flex items-center justify-center shadow-sm transition-opacity ${
                 hasPrev ? 'opacity-0 group-hover/viewer:opacity-100 hover:bg-white cursor-pointer' : 'opacity-0 pointer-events-none'
               }`}
-              aria-label="Previous image"
+              aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4 text-gray-600" />
             </button>
             <button
-              onClick={() => hasNext && onSlideChange(slideIdx + 1)}
+              onClick={() => { if (hasNext) { videoRef.current?.pause(); onSlideChange(slideIdx + 1) } }}
               className={`absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur border border-gray-200 flex items-center justify-center shadow-sm transition-opacity ${
                 hasNext ? 'opacity-0 group-hover/viewer:opacity-100 hover:bg-white cursor-pointer' : 'opacity-0 pointer-events-none'
               }`}
-              aria-label="Next image"
+              aria-label="Next"
             >
               <ChevronRight className="w-4 h-4 text-gray-600" />
             </button>
@@ -224,16 +404,16 @@ function ImageViewer({ images, colors, slideIdx, onSlideChange }: {
         {/* Dot indicators */}
         {images.length > 1 && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 opacity-0 group-hover/viewer:opacity-100 transition-opacity">
-            {images.map((_, di) => (
+            {images.map((m, di) => (
               <button
                 key={di}
-                onClick={() => onSlideChange(di)}
+                onClick={() => { videoRef.current?.pause(); onSlideChange(di) }}
                 className={`transition-all rounded-full ${
                   slideIdx === di
-                    ? 'w-5 h-1.5 bg-white'
-                    : 'w-1.5 h-1.5 bg-white/60 hover:bg-white/80'
+                    ? `w-5 h-1.5 ${m.type === 'video' ? 'bg-red-400' : 'bg-white'}`
+                    : `w-1.5 h-1.5 ${m.type === 'video' ? 'bg-red-300/60 hover:bg-red-300/80' : 'bg-white/60 hover:bg-white/80'}`
                 }`}
-                aria-label={`Image ${di + 1}`}
+                aria-label={m.type === 'video' ? `Video ${di + 1}` : `Image ${di + 1}`}
               />
             ))}
           </div>

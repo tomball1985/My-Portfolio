@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  Database, BarChart3, Users, RefreshCw, Globe, Layers,
+  BarChart3, Users, Globe, Layers,
   Target, Megaphone, Mail, MonitorPlay, Search, TrendingUp,
   ChevronRight, ChevronLeft, Sparkles, Mic2, UserCircle, Share2,
   type LucideIcon
@@ -60,46 +60,15 @@ const capabilityLayers: {
   },
 ]
 
-/* ── Fundamentals ── */
-
-const fundamentals = [
-  { icon: Database, title: 'TAM & ICP Alignment', desc: 'Data strategy & alignment across GTM to drive efficiency and measurable impact.' },
-  { icon: BarChart3, title: 'Pipeline Council', desc: 'Global cadence to discuss effectiveness, resourcing and investment backed by data.' },
-  { icon: Globe, title: 'Regional Rhythm', desc: 'Weekly sync with all GTM teams collaborating on pipeline creation & acceleration.' },
-  { icon: Layers, title: 'RevOps Foundation', desc: 'Operational alignment including IT on data, technology, process, and enablement.' },
-  { icon: TrendingUp, title: 'Insight & Reporting', desc: 'Multi-dimensional funnel reporting to assess creation, velocity and linear progression.' },
-  { icon: RefreshCw, title: 'Iteration for Scale', desc: 'Test, learn and feedback loop across functions & regions allowing real experiments.' },
-]
-
-/* ── Always-on tiers ── */
-
-const alwaysOn = [
-  {
-    level: 'Always On', color: 'bg-[hsl(264,67%,52%)]', label: 'Centrally managed',
-    desc: 'Economies of scale, cost efficiencies, increased ROI & need for deep expertise.',
-    channels: ['Global Campaigns', 'PPC', 'SEO', 'Content Syndication', 'Social Media', 'Global Webinars'],
-  },
-  {
-    level: 'Planned', color: 'bg-[hsl(152,55%,42%)]', label: 'Centrally supported',
-    desc: 'Enablement or execution, regionally augmented with local program / campaign activity.',
-    channels: ['Regional Campaigns', 'Tentpole Events', 'Media Partnerships', 'ABM', 'Outbound Plays'],
-  },
-  {
-    level: 'Tactical', color: 'bg-gray-600', label: 'Centrally guided',
-    desc: 'Target audience build, account selection, data cleaning and wrapping into wider global activity.',
-    channels: ['Small Events', 'Virtual Events', 'Partner Webinars', 'Direct Mail', 'Local ABM'],
-  },
-]
-
 /* ── Engine examples (tabbed) ── */
 
 const engines = [
   {
     id: 'emarsys',
-    company: 'SAP Emarsys',
-    period: '2019 — 2025',
-    headline: 'From startup demand gen to enterprise-scale revenue engine through acquisition and SAP integration',
-    intro: 'Led global demand generation through acquisition, SAP integration, and enterprise transformation. Built from startup marketing to enterprise-scale programs across 10+ market units with 20% YoY budget reductions while maintaining 90% of targets.',
+    company: 'Emarsys to SAP',
+    period: '2020 — 2025',
+    headline: 'From scale up mid-market to enterprise-scale marketing engine through acquisition and SAP integration',
+    intro: 'Led global demand generation through acquisition, SAP integration, and enterprise transformation. Built from event-led, regional marketing to global enterprise-scale programs across 10+ market units navigating  20% YoY budget reductions and integration headwinds while maintaining growth targets.',
     capabilities: ['Brand', 'Product Marketing', 'Demand Generation', 'Content', 'Community & Events', 'Digital Inbound', 'Field Marketing', 'ABM', 'Outbound', 'Owned', 'Paid', 'HUMAN'],
     slides: [
       { label: 'Pipeline & Revenue Achievements', placeholder: 'Pipeline overview with 154M sourced pipeline, 32M net new ARR, 45% marketing contribution' },
@@ -111,10 +80,10 @@ const engines = [
   },
   {
     id: 'clicktale',
-    company: 'Clicktale / Contentsquare',
+    company: 'Clicktale to Contentsquare',
     period: '2017 — 2019',
-    headline: 'Building a B2B demand engine for digital experience analytics through to acquisition',
-    intro: 'B2B specialism in digital experience analytics. Built the marketing engine from the ground up and led through acquisition by Contentsquare. Created integrated campaigns that combined brand, content, and demand generation.',
+    headline: 'Shaking up a category with provocative positioning and a global marketing demand engine - from series C to acquisition',
+    intro: 'Clicktale punched above its weight, shaking up UX analytics with digital body language and landing experience analytics as a category. The digital-first global marketing engine drove demand and revenue with an enterprise customer base and created the dent in North America that led to acquisition by ContentSquare.',
     capabilities: ['Brand', 'Product Marketing', 'Demand Generation', 'PR & Analyst', 'Content', 'Digital Inbound', 'ABM', 'Owned', 'Earned', 'Paid'],
     slides: [
       { label: 'Defining Digital Experience Campaign', placeholder: '$1.8M pipeline, 7M impressions, 320 MQLs — Brian Solis partnership + research report' },
@@ -125,7 +94,7 @@ const engines = [
   {
     id: 'immediate',
     company: 'immediate future',
-    period: '2008 — 2017',
+    period: '2014 — 2016',
     headline: 'Riding the social media wave — building brand, digital, and new business for a leading agency',
     intro: 'Grew from entry level through to director across almost a decade at the forefront of social media transformation. Built brand, digital and new business marketing — working across consumer and B2B clients including Southbank Centre, and multiple global brands.',
     capabilities: ['Brand', 'Content', 'Community & Events', 'SME & Exec', 'Digital Inbound', 'Owned', 'Earned', 'HUMAN'],
@@ -158,7 +127,9 @@ function capTagIcon(label: string): LucideIcon | null {
 
 /* ── Main component ── */
 
-export function Engines() {
+type Route = 'home' | 'engines' | 'campaigns' | 'projects' | 'teams' | 'about' | 'connect'
+
+export function Engines({ navigate }: { navigate: (r: Route) => void }) {
   const [activeEngine, setActiveEngine] = useState(0)
   const [activeSlide, setActiveSlide] = useState(0)
 
@@ -177,7 +148,7 @@ export function Engines() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Engines</h1>
           <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
-            Here's how I approach the building of repeatable systems which elevate brand, deliver differentiated messaging, distribute content and drive growth.
+            Here are the multi-faceted marketing engines I've had the pleasure of driving. Two B2B SaaS from series funding to exit, merger and post-acquisition — $25M to $175M ARR — along with a scrappy bootstrapped agency from $500K to $2M.
           </p>
         </div>
       </section>
@@ -220,7 +191,7 @@ export function Engines() {
       {/* ── Engine examples (tabbed full-width) ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Where I've built these engines</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Under the hood</h2>
 
           {/* Tabs */}
           <div className="flex gap-2 mb-10 border-b border-gray-100 pb-0">
@@ -341,144 +312,22 @@ export function Engines() {
         </div>
       </section>
 
-      {/* ── Frameworks: Fundamentals ── */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Fundamentals for driving pipeline & revenue</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">The operational rhythm and structural foundations that make everything else work.</p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {fundamentals.map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mb-4">
-                  <f.icon className="w-5 h-5 text-[hsl(264,67%,52%)]" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frameworks: Always-on engine ── */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Building the always-on engine</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">A layered approach from highly scalable global programs down to tactical, regionally-led activity.</p>
-          <div className="space-y-4">
-            {alwaysOn.map((tier, i) => (
-              <div key={i} className="rounded-xl border border-gray-100 overflow-hidden bg-white">
-                <div className="flex items-stretch">
-                  <div className={`${tier.color} w-1.5 shrink-0`} />
-                  <div className="flex-1 p-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md text-white ${tier.color}`}>
-                        {tier.level}
-                      </span>
-                      <ChevronRight className="w-4 h-4 text-gray-300" />
-                      <span className="font-semibold text-gray-900">{tier.label}</span>
-                    </div>
-                    <p className="text-sm text-gray-500 mb-4">{tier.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {tier.channels.map((ch, j) => (
-                        <span key={j} className="text-xs px-2.5 py-1 bg-gray-50 text-gray-600 rounded-md border border-gray-100">{ch}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frameworks: Inbound impact model ── */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Inbound impact model</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">Two-stream inbound approach separating high-intent hand-raisers from marketing signal-based leads.</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <div className="w-3 h-3 rounded-full bg-[hsl(264,67%,52%)] mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2 text-lg">Hand Raise & High Intent</h3>
-              <p className="text-sm text-gray-500 mb-4">Demo requests, product discovery, pricing inquiries — routed directly to sales with tight SLA.</p>
-              <div className="flex flex-wrap gap-2">
-                {['Organic', 'PPC'].map(c => (
-                  <span key={c} className="text-xs px-2.5 py-1 bg-purple-50 text-[hsl(264,67%,52%)] rounded-md">{c}</span>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-              <div className="w-3 h-3 rounded-full bg-[hsl(152,55%,42%)] mb-4" />
-              <h3 className="font-bold text-gray-900 mb-2 text-lg">Marketing Signals</h3>
-              <p className="text-sm text-gray-500 mb-4">Lead and account-level interactions — prioritised and queued by marketing for sales with varying SLAs.</p>
-              <div className="flex flex-wrap gap-2">
-                {['Events', 'Content', 'Webinar', 'Paid', 'First Party Intent', 'Third Party Signal'].map(c => (
-                  <span key={c} className="text-xs px-2.5 py-1 bg-emerald-50 text-[hsl(152,55%,42%)] rounded-md">{c}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frameworks: Full Funnel Signal Map ── */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Full Funnel Signal Map</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">Visualization of the signals, tech stack, content and channels through the funnel — the basis of the playbook for Allbound activation.</p>
-          <div className="aspect-video rounded-xl bg-white border border-gray-200 flex items-center justify-center">
-            <div className="text-center">
-              <MonitorPlay className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-              <p className="text-sm text-gray-400">Full funnel signal map visual</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frameworks: Audience-first Marketing ── */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Audience-first Marketing</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">Here's how I bring personas or buying groups to life. Forcing thinking through the lens of the fundamentals below, helps the adoption of social-led marketing.</p>
-          <div className="aspect-video rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center">
-            <div className="text-center">
-              <MonitorPlay className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-              <p className="text-sm text-gray-400">Audience-first framework visual</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frameworks: OIA Kaizen Style Optimization ── */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-50 text-[hsl(264,67%,52%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
-            Frameworks
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">"OIA" Kaizen Style Optimization Framework</h2>
-          <p className="text-gray-500 mb-10 max-w-xl">Observation, implication, action. Simple framework I have used from my agency strategy days applied to program and channel optimization.</p>
-          <div className="aspect-video rounded-xl bg-white border border-gray-200 flex items-center justify-center">
-            <div className="text-center">
-              <MonitorPlay className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-              <p className="text-sm text-gray-400">OIA optimization framework visual</p>
-            </div>
-          </div>
+      {/* ── CTA ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="w-12 h-1 bg-[hsl(264,67%,52%)] rounded-full mx-auto mb-8" />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mb-4" style={{ fontFamily: 'Space Grotesk' }}>
+            Should we be building together?
+          </h2>
+          <p className="text-gray-500 mb-8">
+            If you are a SaaS CEO, CMO or investment professional.
+          </p>
+          <button
+            onClick={() => navigate('connect')}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(264,67%,52%)] text-white font-medium rounded-lg hover:bg-[hsl(264,67%,46%)] transition-colors"
+          >
+            Let's Connect <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
     </div>

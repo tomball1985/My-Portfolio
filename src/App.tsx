@@ -36,7 +36,7 @@ function App() {
 
   const pages: Record<Route, JSX.Element> = {
     home: <Home navigate={navigate} />,
-    engines: <Engines />,
+    engines: <Engines navigate={navigate} />,
     campaigns: <Campaigns />,
     projects: <Projects />,
     teams: <Teams />,

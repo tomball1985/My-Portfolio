@@ -16,23 +16,202 @@ const scrollTo = (id: string) => {
 
 interface Belief {
   title: string
-  accent: string          // tailwind gradient classes
+  accent: string
   iconBg: string
+  svg: JSX.Element
 }
 
 const beliefs: Belief[] = [
-  { title: 'Revenue Aligned.',                                accent: 'from-pink-500 to-purple-600',   iconBg: 'bg-pink-500/20' },
-  { title: '...quantify revenue and pipeline impact...',      accent: 'from-pink-500 to-purple-600',   iconBg: 'bg-pink-500/20' },
-  { title: '...marketing CREATES value and is not a cost-centre...', accent: 'from-pink-500 to-purple-600', iconBg: 'bg-pink-500/20' },
-  { title: '...cascade from company level goals and business metrics...', accent: 'from-pink-500 to-purple-600', iconBg: 'bg-pink-500/20' },
-  { title: 'Systems thinking + AI',                           accent: 'from-purple-500 to-indigo-600', iconBg: 'bg-purple-500/20' },
-  { title: 'Brand <> Demand.',                                accent: 'from-purple-500 to-pink-500',   iconBg: 'bg-purple-500/20' },
-  { title: 'Product AND Market-ing Fit.',                     accent: 'from-indigo-500 to-pink-500',   iconBg: 'bg-indigo-500/20' },
-  { title: 'Build a Demand Engine.',                          accent: 'from-purple-500 to-pink-500',   iconBg: 'bg-purple-500/20' },
-  { title: 'Content = Lifeblood.',                            accent: 'from-pink-500 to-red-500',      iconBg: 'bg-pink-500/20' },
-  { title: 'Customer FLYwheel.',                              accent: 'from-purple-600 to-pink-500',   iconBg: 'bg-purple-500/20' },
-  { title: 'Community + Experiences.',                        accent: 'from-purple-500 to-pink-500',   iconBg: 'bg-purple-500/20' },
-  { title: 'GTM Foundations + Rev Ops.',                      accent: 'from-pink-500 to-purple-600',   iconBg: 'bg-pink-500/20' },
+  {
+    title: 'Revenue Aligned',
+    accent: 'from-pink-500 to-purple-600',
+    iconBg: 'bg-pink-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="60" cy="40" r="28" stroke="url(#ra1)" strokeWidth="2.5" opacity="0.3" />
+        <circle cx="60" cy="40" r="18" stroke="url(#ra1)" strokeWidth="2" opacity="0.5" />
+        <circle cx="60" cy="40" r="6" fill="url(#ra1)" />
+        <path d="M30 55 L50 35 L70 42 L90 20" stroke="url(#ra1)" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="90" cy="20" r="3" fill="#ec4899" />
+        <text x="86" y="16" fill="#ec4899" fontSize="8" fontWeight="bold">$</text>
+        <defs><linearGradient id="ra1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#9333ea"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Brand <> Demand',
+    accent: 'from-purple-500 to-pink-500',
+    iconBg: 'bg-purple-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="44" cy="40" r="22" stroke="#a855f7" strokeWidth="2" opacity="0.6" />
+        <circle cx="76" cy="40" r="22" stroke="#ec4899" strokeWidth="2" opacity="0.6" />
+        <path d="M58 25 Q60 40 58 55" stroke="url(#bd1)" strokeWidth="2.5" opacity="0.8" />
+        <path d="M62 25 Q60 40 62 55" stroke="url(#bd1)" strokeWidth="2.5" opacity="0.8" />
+        <text x="30" y="43" fill="#a855f7" fontSize="7" fontWeight="bold" opacity="0.7">BRAND</text>
+        <text x="67" y="43" fill="#ec4899" fontSize="7" fontWeight="bold" opacity="0.7">DEMAND</text>
+        <path d="M54 38 L66 38 M54 42 L66 42" stroke="url(#bd1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+        <defs><linearGradient id="bd1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Product AND Market-ing Fit',
+    accent: 'from-indigo-500 to-pink-500',
+    iconBg: 'bg-indigo-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <rect x="20" y="22" width="32" height="36" rx="4" stroke="#6366f1" strokeWidth="2" opacity="0.6" />
+        <rect x="68" y="22" width="32" height="36" rx="4" stroke="#ec4899" strokeWidth="2" opacity="0.6" />
+        <text x="26" y="44" fill="#6366f1" fontSize="6.5" fontWeight="bold" opacity="0.7">PRODUCT</text>
+        <text x="72" y="44" fill="#ec4899" fontSize="6.5" fontWeight="bold" opacity="0.7">MARKET</text>
+        <path d="M52 32 L68 32 M52 40 L68 40 M52 48 L68 48" stroke="url(#pmf1)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+        <path d="M56 36 L64 36 M56 44 L64 44" stroke="url(#pmf1)" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="60" cy="40" r="3" fill="url(#pmf1)" opacity="0.8" />
+        <defs><linearGradient id="pmf1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#6366f1"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Systems Thinking & AI',
+    accent: 'from-purple-500 to-indigo-600',
+    iconBg: 'bg-purple-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="60" cy="40" r="8" stroke="url(#st1)" strokeWidth="2" />
+        <circle cx="35" cy="22" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.6" />
+        <circle cx="85" cy="22" r="5" stroke="#4f46e5" strokeWidth="1.5" opacity="0.6" />
+        <circle cx="35" cy="58" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.6" />
+        <circle cx="85" cy="58" r="5" stroke="#4f46e5" strokeWidth="1.5" opacity="0.6" />
+        <line x1="40" y1="25" x2="53" y2="35" stroke="#a855f7" strokeWidth="1.5" opacity="0.4" />
+        <line x1="80" y1="25" x2="67" y2="35" stroke="#4f46e5" strokeWidth="1.5" opacity="0.4" />
+        <line x1="40" y1="55" x2="53" y2="45" stroke="#a855f7" strokeWidth="1.5" opacity="0.4" />
+        <line x1="80" y1="55" x2="67" y2="45" stroke="#4f46e5" strokeWidth="1.5" opacity="0.4" />
+        <line x1="35" y1="27" x2="35" y2="53" stroke="#a855f7" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
+        <line x1="85" y1="27" x2="85" y2="53" stroke="#4f46e5" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
+        <line x1="40" y1="22" x2="80" y2="22" stroke="url(#st1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
+        <line x1="40" y1="58" x2="80" y2="58" stroke="url(#st1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
+        <text x="54" y="43" fill="url(#st1)" fontSize="8" fontWeight="bold">AI</text>
+        <defs><linearGradient id="st1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#4f46e5"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Demand Engine',
+    accent: 'from-purple-500 to-pink-500',
+    iconBg: 'bg-purple-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="60" cy="40" r="24" stroke="url(#de1)" strokeWidth="2" opacity="0.3" />
+        <circle cx="60" cy="40" r="16" stroke="url(#de1)" strokeWidth="2" opacity="0.5" />
+        <circle cx="60" cy="40" r="8" fill="url(#de1)" opacity="0.3" />
+        <path d="M60 16 L60 10 M60 64 L60 70 M36 40 L30 40 M84 40 L90 40" stroke="url(#de1)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+        <path d="M56 36 L64 40 L56 44 Z" fill="url(#de1)" />
+        <path d="M44 28 L48 32" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+        <path d="M76 28 L72 32" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+        <path d="M44 52 L48 48" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+        <path d="M76 52 L72 48" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+        <defs><linearGradient id="de1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Content = Lifeblood',
+    accent: 'from-pink-500 to-red-500',
+    iconBg: 'bg-pink-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <path d="M60 22 C60 22, 48 12, 38 22 C28 32, 38 46, 60 62 C82 46, 92 32, 82 22 C72 12, 60 22, 60 22Z" stroke="url(#cl1)" strokeWidth="2.5" opacity="0.6" />
+        <path d="M60 30 C60 30, 52 24, 46 30 C40 36, 46 44, 60 54 C74 44, 80 36, 74 30 C68 24, 60 30, 60 30Z" stroke="url(#cl1)" strokeWidth="1.5" opacity="0.4" />
+        <path d="M50 38 L55 38 M52 34 L52 42" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <path d="M60 38 L70 38" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <path d="M60 42 L68 42" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
+        <circle cx="60" cy="40" r="2" fill="url(#cl1)" opacity="0.8" />
+        <defs><linearGradient id="cl1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#ef4444"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Customer Flywheel',
+    accent: 'from-purple-600 to-pink-500',
+    iconBg: 'bg-purple-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="60" cy="40" r="26" stroke="url(#cf1)" strokeWidth="2" opacity="0.2" />
+        <path d="M60 14 A26 26 0 0 1 86 40" stroke="url(#cf1)" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M86 40 A26 26 0 0 1 60 66" stroke="#ec4899" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
+        <path d="M60 66 A26 26 0 0 1 34 40" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+        <path d="M34 40 A26 26 0 0 1 60 14" stroke="#9333ea" strokeWidth="2.5" strokeLinecap="round" opacity="0.3" />
+        <polygon points="84,34 90,40 84,46" fill="url(#cf1)" opacity="0.8" />
+        <polygon points="66,64 60,70 54,64" fill="#ec4899" opacity="0.6" />
+        <polygon points="36,46 30,40 36,34" fill="#a855f7" opacity="0.4" />
+        <circle cx="60" cy="40" r="10" stroke="url(#cf1)" strokeWidth="1.5" opacity="0.5" />
+        <circle cx="60" cy="40" r="3" fill="url(#cf1)" />
+        <defs><linearGradient id="cf1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#9333ea"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Community & Experiences',
+    accent: 'from-purple-500 to-pink-500',
+    iconBg: 'bg-purple-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="60" cy="30" r="6" stroke="url(#ce1)" strokeWidth="2" />
+        <circle cx="40" cy="48" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.7" />
+        <circle cx="80" cy="48" r="5" stroke="#ec4899" strokeWidth="1.5" opacity="0.7" />
+        <circle cx="30" cy="34" r="4" stroke="#a855f7" strokeWidth="1.5" opacity="0.5" />
+        <circle cx="90" cy="34" r="4" stroke="#ec4899" strokeWidth="1.5" opacity="0.5" />
+        <line x1="54" y1="32" x2="44" y2="44" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.4" />
+        <line x1="66" y1="32" x2="76" y2="44" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.4" />
+        <line x1="36" y1="38" x2="38" y2="44" stroke="#a855f7" strokeWidth="1" opacity="0.3" />
+        <line x1="84" y1="38" x2="82" y2="44" stroke="#ec4899" strokeWidth="1" opacity="0.3" />
+        <line x1="45" y1="48" x2="75" y2="48" stroke="url(#ce1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
+        <path d="M48 60 Q60 68 72 60" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.5" strokeLinecap="round" />
+        <circle cx="60" cy="30" r="2.5" fill="url(#ce1)" opacity="0.6" />
+        <defs><linearGradient id="ce1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'GTM Foundation & RevOps',
+    accent: 'from-pink-500 to-purple-600',
+    iconBg: 'bg-pink-500/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <rect x="30" y="52" width="60" height="8" rx="2" stroke="url(#gr1)" strokeWidth="2" opacity="0.6" />
+        <rect x="36" y="40" width="48" height="8" rx="2" stroke="url(#gr1)" strokeWidth="1.5" opacity="0.5" />
+        <rect x="42" y="28" width="36" height="8" rx="2" stroke="url(#gr1)" strokeWidth="1.5" opacity="0.4" />
+        <polygon points="60,14 72,24 48,24" stroke="url(#gr1)" strokeWidth="1.5" fill="url(#gr1)" fillOpacity="0.15" />
+        <line x1="60" y1="14" x2="60" y2="60" stroke="url(#gr1)" strokeWidth="1" opacity="0.2" strokeDasharray="2 2" />
+        <circle cx="60" cy="18" r="2" fill="url(#gr1)" opacity="0.8" />
+        <text x="40" y="58" fill="url(#gr1)" fontSize="5.5" fontWeight="bold" opacity="0.5">FOUNDATION</text>
+        <defs><linearGradient id="gr1" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#9333ea"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    title: 'Remember the Humans',
+    accent: 'from-purple-400 to-pink-400',
+    iconBg: 'bg-purple-400/20',
+    svg: (
+      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
+        <circle cx="48" cy="32" r="8" stroke="url(#rh1)" strokeWidth="2" opacity="0.6" />
+        <path d="M48 40 Q48 52 48 56" stroke="url(#rh1)" strokeWidth="2" opacity="0.5" />
+        <path d="M40 46 L48 44 L56 46" stroke="url(#rh1)" strokeWidth="1.5" opacity="0.4" strokeLinecap="round" />
+        <circle cx="72" cy="32" r="8" stroke="url(#rh1)" strokeWidth="2" opacity="0.6" />
+        <path d="M72 40 Q72 52 72 56" stroke="url(#rh1)" strokeWidth="2" opacity="0.5" />
+        <path d="M64 46 L72 44 L80 46" stroke="url(#rh1)" strokeWidth="1.5" opacity="0.4" strokeLinecap="round" />
+        <path d="M56 38 L64 38" stroke="url(#rh1)" strokeWidth="2" opacity="0.3" />
+        <path d="M52 62 Q60 70 68 62" stroke="url(#rh1)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+        <circle cx="45" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
+        <circle cx="51" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
+        <circle cx="69" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
+        <circle cx="75" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
+        <defs><linearGradient id="rh1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#c084fc"/><stop offset="1" stopColor="#f472b6"/></linearGradient></defs>
+      </svg>
+    ),
+  },
 ]
 
 /* ── Company logos ── */
@@ -86,24 +265,14 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
               </div>
             </div>
 
-            {/* Photo placeholder */}
+            {/* Hero photo */}
             <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-[hsl(264,67%,52%)] to-[hsl(264,67%,38%)] overflow-hidden shadow-2xl shadow-purple-200/50">
-                <div className="absolute inset-0 flex items-end justify-center">
-                  <div className="w-full h-full bg-gradient-to-t from-black/20 to-transparent" />
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <div className="bg-white/90 backdrop-blur rounded-xl p-4">
-                      <p className="text-sm font-bold text-gray-900">Tom Ball</p>
-                      <p className="text-xs text-gray-500">Marketing Leader. London, UK</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Placeholder silhouette */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg className="w-32 h-32 text-white/30" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                </div>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-purple-200/50">
+                <img
+                  src="/tom-hero.gif"
+                  alt="Tom Ball waving"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-[hsl(152,55%,42%)]/10 blur-xl" />
@@ -117,16 +286,24 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <p className="text-[10px] text-gray-400 uppercase tracking-widest text-center mb-6 font-semibold">Companies I have worked with</p>
-          <div className="flex items-center justify-center gap-x-10 gap-y-6 flex-wrap">
-            {logos.map(l => (
-              <img
-                key={l.name}
-                src={l.src}
-                alt={l.name}
-                className="h-6 md:h-8 w-auto opacity-50 hover:opacity-80 transition-opacity object-contain"
-                style={{ maxWidth: '140px' }}
-              />
-            ))}
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-y-6 gap-x-4">
+            {logos.map(l => {
+              const aspect = l.w / 80
+              // Square / narrow logos get taller max-h so they aren't tiny
+              // Wide logos get a wider max-w so they aren't squished
+              const maxH = aspect < 2 ? 36 : aspect < 2.5 ? 30 : 26
+              const maxW = aspect > 5 ? 140 : 120
+              return (
+                <div key={l.name} className="flex items-center justify-center h-10">
+                  <img
+                    src={l.src}
+                    alt={l.name}
+                    className="w-auto opacity-50 hover:opacity-80 transition-opacity object-contain"
+                    style={{ maxHeight: `${maxH}px`, maxWidth: `${maxW}px` }}
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -253,35 +430,22 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
         <div className="max-w-6xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-3xl font-bold mb-4">Ethos</h2>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 text-[hsl(264,67%,72%)] text-xs font-semibold rounded-full mb-6 tracking-wide uppercase">
+                How I Think
+              </div>
+              <h2 className="text-3xl font-bold mb-4">Core Principles</h2>
               <p className="text-gray-400 leading-relaxed mb-8">
                 The way I think about bringing marketing to life and creating value. How I approach revenue alignment, systems thinking, brand and demand integration, and building engines that scale.
               </p>
 
-              {/* Text links */}
-              <div className="space-y-3">
-                <button
-                  onClick={() => scrollTo('ethos-carousel')}
-                  className="flex items-center gap-2 text-sm font-medium transition-colors group"
-                >
-                  <span className="text-white">My core beliefs</span>
-                  <ArrowRight className="w-4 h-4 text-[hsl(264,67%,52%)] group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={() => navigate('about')}
-                  className="flex items-center gap-2 text-sm font-medium transition-colors group"
-                >
-                  <span className="text-white">Me inside work</span>
-                  <ArrowRight className="w-4 h-4 text-[hsl(264,67%,52%)] group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  onClick={() => navigate('about')}
-                  className="flex items-center gap-2 text-sm font-medium transition-colors group"
-                >
-                  <span className="text-white">Me outside work</span>
-                  <ArrowRight className="w-4 h-4 text-[hsl(264,67%,52%)] group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
+              {/* CTA */}
+              <button
+                onClick={() => scrollTo('ethos-carousel')}
+                className="flex items-center gap-2 text-sm font-medium transition-colors group"
+              >
+                <span className="text-white">Watch the video</span>
+                <ArrowRight className="w-4 h-4 text-[hsl(264,67%,52%)] group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
 
             {/* Rotating beliefs carousel */}
@@ -289,8 +453,14 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
               <div className="relative aspect-video rounded-xl bg-gray-800 border border-gray-700 overflow-hidden">
                 {/* Gradient accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${beliefs[beliefIdx].accent}`} />
+                {/* SVG illustration */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-40">
+                  <div className="w-3/4 h-3/4">
+                    {beliefs[beliefIdx].svg}
+                  </div>
+                </div>
                 {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-start justify-center px-8">
+                <div className="absolute inset-0 flex flex-col items-start justify-end px-8 pb-6">
                   <p
                     className="text-xl md:text-2xl font-bold text-white leading-snug transition-opacity duration-500"
                     style={{ fontFamily: 'Space Grotesk' }}
