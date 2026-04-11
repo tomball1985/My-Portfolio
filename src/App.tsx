@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css'
 import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
@@ -34,7 +34,7 @@ function App() {
     window.location.hash = r
   }
 
-  const pages: Record<Route, JSX.Element> = {
+  const pages: Record<Route, React.JSX.Element> = {
     home: <Home navigate={navigate} />,
     engines: <Engines navigate={navigate} />,
     campaigns: <Campaigns />,

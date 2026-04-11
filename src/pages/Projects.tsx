@@ -2,11 +2,11 @@ import { useState } from 'react'
 import {
   CheckCircle2, Settings, Workflow, Database, Monitor, Sparkles,
   Globe, BarChart3, Target, Layers, TrendingUp, Bot, Megaphone,
-  Tag as TagIcon, ArrowUpRight, X,
+  Tag as TagIcon, X,
   BookOpen, Users, Mic, Share2, Star, Compass, Link, Map,
   Calculator, Mail, Calendar, Building, PlayCircle, Video,
   RefreshCw, Headphones, Lightbulb, Filter, Eye, Wrench,
-  PieChart, FileText, Radio, Code, Search, Zap, Youtube,
+  PieChart, FileText, Radio, Code, Search, Zap,
   ArrowDownUp, LayoutDashboard, Library,
   type LucideIcon
 } from 'lucide-react'

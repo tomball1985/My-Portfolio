@@ -16,7 +16,7 @@ export function Nav({ route, navigate }: { route: Route; navigate: (r: Route) =>
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>()
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   /* Close dropdown when clicking outside */
   useEffect(() => {

@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   ArrowRight, TrendingUp, Users, Target, Zap, BarChart3,
-  Globe, Layers, Bot, Briefcase,
+  Layers, Briefcase,
 } from 'lucide-react'
 
 type Route = 'home' | 'engines' | 'campaigns' | 'projects' | 'teams' | 'about' | 'connect'
@@ -18,7 +18,7 @@ interface Belief {
   title: string
   accent: string
   iconBg: string
-  svg: JSX.Element
+  svg: React.JSX.Element
 }
 
 const beliefs: Belief[] = [
