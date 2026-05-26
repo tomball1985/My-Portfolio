@@ -13,6 +13,11 @@ dist-ssr
 .parcel-cache
 *.local
 
+# Source notes / working files — not for the public web repo
+content/
+*.docx
+~$*
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

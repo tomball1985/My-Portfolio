@@ -15,7 +15,7 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Revenue marketing leader with 15+ years building demand engines, brand campaigns, and high-performing teams across B2B SaaS.
+              I build marketing engines that fuel revenue growth and the teams (human + agent) that run them.
             </p>
           </div>
 
@@ -37,10 +37,10 @@ export function Footer({ navigate }: { navigate: (r: Route) => void }) {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Connect</h4>
             <div className="space-y-2 text-sm">
-              <a href="https://linkedin.com/in/tomball" target="_blank" rel="noopener" className="block hover:text-white transition-colors">
+              <a href="https://linkedin.com/in/tomball" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                 LinkedIn
               </a>
-              <a href="https://substack.com/@tomball" target="_blank" rel="noopener" className="block hover:text-white transition-colors">
+              <a href="https://substack.com/@tomball" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
                 Substack
               </a>
               <button onClick={() => navigate('connect')} className="block hover:text-white transition-colors">

@@ -24,13 +24,22 @@ function App() {
   useEffect(() => {
     const onHash = () => {
       setRoute(getRoute())
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      const anchor = sessionStorage.getItem('pendingAnchor')
+      if (anchor) {
+        sessionStorage.removeItem('pendingAnchor')
+        setTimeout(() => {
+          document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 80)
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  const navigate = (r: Route) => {
+  const navigate = (r: Route, anchor?: string) => {
+    if (anchor) sessionStorage.setItem('pendingAnchor', anchor)
     window.location.hash = r
   }
 
@@ -39,8 +48,8 @@ function App() {
     engines: <Engines navigate={navigate} />,
     campaigns: <Campaigns />,
     projects: <Projects />,
-    teams: <Teams />,
-    about: <About />,
+    teams: <Teams navigate={navigate} />,
+    about: <About navigate={navigate} />,
     connect: <Connect />,
   }
 
