@@ -71,11 +71,19 @@ const engines = [
     intro: 'Led global demand generation through acquisition, SAP integration, and enterprise transformation. Built from event-led, regional marketing to global enterprise-scale programs across 10+ market units navigating  20% YoY budget reductions and integration headwinds while maintaining growth targets.',
     capabilities: ['Brand', 'Product Marketing', 'Demand Generation', 'Content', 'Community & Events', 'Digital Inbound', 'Field Marketing', 'ABM', 'Outbound', 'Owned', 'Paid', 'HUMAN'],
     slides: [
-      { label: 'Pipeline & Revenue Achievements', placeholder: 'Pipeline overview with 154M sourced pipeline, 32M net new ARR, 45% marketing contribution' },
-      { label: 'Always-on Engine', placeholder: 'Layered demand engine showing always-on, planned, and tactical tiers' },
-      { label: 'Integrated Campaign Calendar', placeholder: 'H1 2024 integrated plan showing global campaigns, events, and digital programs' },
-      { label: 'Inbound Impact Model', placeholder: 'Two-stream inbound approach — hand-raise vs. marketing signals' },
-      { label: 'Regional Performance', placeholder: 'Paid media breakdown by region with targets vs. actuals across all metrics' },
+      { label: 'Overview', placeholder: 'Emarsys to SAP marketing engine overview', image: '/Engines/Emarsys_to_SAP.gif' },
+      { label: 'Marketing Impact', placeholder: 'Marketing Impact', image: '/Engines/Emarays to SAP/01 Marketing Impact.png' },
+      { label: 'DG Impact', placeholder: 'DG Impact', image: '/Engines/Emarays to SAP/02 DG Impact.png' },
+      { label: 'Marketing Efficiency', placeholder: 'Marketing Efficiency', image: '/Engines/Emarays to SAP/03 Marketing Efficiency.png' },
+      { label: 'Global Demand CoE', placeholder: 'Global Demand CoE', image: '/Engines/Emarays to SAP/04 Global Demand CoE.png' },
+      { label: 'Global to Local', placeholder: 'Global to Local', image: '/Engines/Emarays to SAP/05 Global to Local.png' },
+      { label: 'Full Funnel', placeholder: 'Full Funnel', image: '/Engines/Emarays to SAP/06 Full Funnel .png' },
+      { label: 'Pipeline Council', placeholder: 'Pipeline Council', image: '/Engines/Emarays to SAP/07 Pipeline Council.png' },
+      { label: 'TAM and ICP', placeholder: 'TAM and ICP', image: '/Engines/Emarays to SAP/08 TAM and ICP.png' },
+      { label: 'Integrated Marketing', placeholder: 'Integrated Marketing', image: '/Engines/Emarays to SAP/09 Integrated Marketing.png' },
+      { label: 'Split Funnel', placeholder: 'Split Funnel', image: '/Engines/Emarays to SAP/10 Split Funnel.png' },
+      { label: 'Power to the Marketer', placeholder: 'Power to the Marketer', image: '/Engines/Emarays to SAP/11 Power to the Marketer.png' },
+      { label: 'Hybrid Events Platform', placeholder: 'Hybrid Events Platform', image: '/Engines/Emarays to SAP/12 Hybrid Events Platform.png' },
     ],
   },
   {
@@ -86,9 +94,25 @@ const engines = [
     intro: 'Clicktale punched above its weight, shaking up UX analytics with digital body language and landing experience analytics as a category. The digital-first global marketing engine drove demand and revenue with an enterprise customer base and created the dent in North America that led to acquisition by ContentSquare.',
     capabilities: ['Brand', 'Product Marketing', 'Demand Generation', 'PR & Analyst', 'Content', 'Digital Inbound', 'ABM', 'Owned', 'Earned', 'Paid'],
     slides: [
-      { label: 'Defining Digital Experience Campaign', placeholder: '$1.8M pipeline, 7M impressions, 320 MQLs — Brian Solis partnership + research report' },
-      { label: 'Digital Body Language', placeholder: 'Brand positioning campaign — integrated across brand, product and demand' },
-      { label: 'Inbound Engine', placeholder: 'Inbound pipeline and revenue performance across channels' },
+      { label: 'Overview', placeholder: 'Clicktale to ContentSquare marketing engine overview', image: '/Engines/Clicktale_to_ContentSquare.gif' },
+      { label: 'Brand and Positioning', placeholder: 'Brand and Positioning', image: '/Engines/Clicktale/106.png' },
+      { label: 'Global Team', placeholder: 'Global Team', image: '/Engines/Clicktale/107.png' },
+      { label: 'MarTech Stack', placeholder: 'MarTech Stack', image: '/Engines/Clicktale/108.png' },
+      { label: 'Lead Scoring', placeholder: 'Lead Scoring', image: '/Engines/Clicktale/109.png' },
+      { label: 'SDR', placeholder: 'SDR', image: '/Engines/Clicktale/110.png' },
+      { label: 'DG Campaigns', placeholder: 'DG Campaigns', image: '/Engines/Clicktale/111.png' },
+      { label: 'Thought Leadership', placeholder: 'Thought Leadership', image: '/Engines/Clicktale/112.png' },
+      { label: 'Influencer', placeholder: 'Influencer', image: '/Engines/Clicktale/113.png' },
+      { label: 'Customer Flywheel', placeholder: 'Customer Flywheel', image: '/Engines/Clicktale/114.png' },
+      { label: 'Partner Marketing', placeholder: 'Partner Marketing', image: '/Engines/Clicktale/115.png' },
+      { label: 'Webinar', placeholder: 'Webinar', image: '/Engines/Clicktale/116.png' },
+      { label: 'Email', placeholder: 'Email', image: '/Engines/Clicktale/117.png' },
+      { label: 'Nurture', placeholder: 'Nurture', image: '/Engines/Clicktale/118.png' },
+      { label: 'Organic Search', placeholder: 'Organic Search', image: '/Engines/Clicktale/119.png' },
+      { label: 'Paid Search', placeholder: 'Paid Search', image: '/Engines/Clicktale/120.png' },
+      { label: 'CRO', placeholder: 'CRO', image: '/Engines/Clicktale/121.png' },
+      { label: 'Paid Social', placeholder: 'Paid Social', image: '/Engines/Clicktale/122.png' },
+      { label: 'Organic Social', placeholder: 'Organic Social', image: '/Engines/Clicktale/123.png' },
     ],
   },
   {
@@ -99,9 +123,8 @@ const engines = [
     intro: 'Grew from entry level through to director across almost a decade at the forefront of social media transformation. Built brand, digital and new business marketing — working across consumer and B2B clients including Southbank Centre, and multiple global brands.',
     capabilities: ['Brand', 'Content', 'Community & Events', 'SME & Exec', 'Digital Inbound', 'Owned', 'Earned', 'HUMAN'],
     slides: [
-      { label: 'Southbank Centre Campaign', placeholder: 'Consumer social-first brand campaign for one of London\'s iconic cultural venues' },
-      { label: 'Agency Growth', placeholder: 'New business and brand marketing driving agency growth through the social media era' },
-      { label: 'Client Portfolio', placeholder: 'B2B and consumer client work across social, digital, and brand' },
+      { label: 'Overview', placeholder: 'immediate future agency marketing engine overview', image: '/Engines/IF Cover.gif' },
+      { label: 'Coming Soon', placeholder: 'Coming soon', image: '/Engines/IF Cover.gif' },
     ],
   },
 ]
@@ -153,46 +176,9 @@ export function Engines({ navigate }: { navigate: (r: Route) => void }) {
         </div>
       </section>
 
-      {/* ── Core Capabilities (layered) ── */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">Core Capabilities</h2>
-          <div className="space-y-3">
-            {capabilityLayers.map((layer, li) => {
-              const barColor = layer.bgColor === 'bg-purple-50' ? 'bg-[hsl(264,67%,52%)]' : layer.bgColor === 'bg-emerald-50' ? 'bg-[hsl(152,55%,42%)]' : layer.bgColor === 'bg-blue-50' ? 'bg-blue-500' : 'bg-gray-400'
-              return (
-                <div key={li} className="flex items-center gap-4">
-                  {/* Layer label — fixed width, left-aligned */}
-                  <div className="w-28 shrink-0 flex items-center gap-2">
-                    <div className={`w-5 h-0.5 rounded-full ${barColor}`} />
-                    <span className={`text-[11px] font-bold uppercase tracking-widest ${layer.color} whitespace-nowrap`}>{layer.layer}</span>
-                  </div>
-                  {/* 4 capability cards fill the remaining space */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 flex-1">
-                    {layer.items.map((item, ii) => (
-                      <div
-                        key={ii}
-                        className={`flex items-center gap-2.5 px-3 py-3 rounded-lg border border-gray-100 ${layer.bgColor}/40 hover:${layer.bgColor} transition-all`}
-                      >
-                        <div className={`w-7 h-7 rounded-md ${layer.bgColor} flex items-center justify-center shrink-0`}>
-                          <item.icon className={`w-3.5 h-3.5 ${layer.color}`} />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700">{item.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ── Engine examples (tabbed full-width) ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Under the hood</h2>
-
           {/* Tabs */}
           <div className="flex gap-2 mb-10 border-b border-gray-100 pb-0">
             {engines.map((e, i) => (
@@ -212,47 +198,65 @@ export function Engines({ navigate }: { navigate: (r: Route) => void }) {
 
           {/* Active engine content */}
           <div className="space-y-8">
-            {/* Top section: intro + meta */}
-            <div className="grid md:grid-cols-[1fr,280px] gap-8">
-              <div>
-                <p className="text-sm text-gray-400 uppercase tracking-wider font-medium mb-2">{engine.period}</p>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mb-4">{engine.headline}</h3>
-                <p className="text-gray-500 leading-relaxed">{engine.intro}</p>
+            {/* Period / headline / capability tags / intro — full width */}
+            <div>
+              <p className="text-sm text-gray-400 uppercase tracking-wider font-medium mb-2">{engine.period}</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mb-4">{engine.headline}</h3>
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {engine.capabilities.map((cap, ci) => {
+                  const colors = capTagColor(cap)
+                  const Icon = capTagIcon(cap)
+                  return (
+                    <span
+                      key={ci}
+                      className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md ${colors.bg} ${colors.text}`}
+                    >
+                      {Icon && <Icon className="w-3 h-3" />}
+                      {cap}
+                    </span>
+                  )
+                })}
               </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Core capabilities used</h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {engine.capabilities.map((cap, ci) => {
-                      const colors = capTagColor(cap)
-                      const Icon = capTagIcon(cap)
-                      return (
-                        <span
-                          key={ci}
-                          className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-md ${colors.bg} ${colors.text}`}
-                        >
-                          {Icon && <Icon className="w-3 h-3" />}
-                          {cap}
-                        </span>
-                      )
-                    })}
-                  </div>
-                </div>
-              </div>
+              <p className="text-gray-500 leading-relaxed max-w-4xl">{engine.intro}</p>
             </div>
 
-            {/* Image carousel placeholder */}
+            {/* Slide label menu — above the image */}
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {engine.slides.map((s, si) => (
+                <button
+                  key={si}
+                  onClick={() => setActiveSlide(si)}
+                  className={`whitespace-nowrap text-xs px-3 py-1.5 rounded-md border transition-colors ${
+                    activeSlide === si
+                      ? 'bg-purple-50 border-[hsl(264,67%,52%)]/30 text-[hsl(264,67%,52%)] font-semibold'
+                      : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-100'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Image carousel */}
             <div className="relative">
               <div className="aspect-[16/8] rounded-xl bg-gray-50 border border-gray-200 overflow-hidden relative">
                 {/* Slide content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center mb-4">
-                    <MonitorPlay className="w-6 h-6 text-gray-400" />
+                {'image' in engine.slides[activeSlide] && engine.slides[activeSlide].image ? (
+                  <img
+                    src={engine.slides[activeSlide].image}
+                    alt={engine.slides[activeSlide].label}
+                    className="absolute inset-0 w-full h-full object-contain bg-white"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                    <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center mb-4">
+                      <MonitorPlay className="w-6 h-6 text-gray-400" />
+                    </div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{engine.slides[activeSlide].label}</h4>
+                    <p className="text-sm text-gray-400 max-w-md">{engine.slides[activeSlide].placeholder}</p>
+                    <p className="text-xs text-gray-300 mt-4">Slide {activeSlide + 1} of {engine.slides.length} — drop your HTML recreations here</p>
                   </div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">{engine.slides[activeSlide].label}</h4>
-                  <p className="text-sm text-gray-400 max-w-md">{engine.slides[activeSlide].placeholder}</p>
-                  <p className="text-xs text-gray-300 mt-4">Slide {activeSlide + 1} of {engine.slides.length} — drop your HTML recreations here</p>
-                </div>
+                )}
 
                 {/* Nav arrows */}
                 {engine.slides.length > 1 && (
@@ -291,23 +295,42 @@ export function Engines({ navigate }: { navigate: (r: Route) => void }) {
                 ))}
               </div>
 
-              {/* Slide label strip */}
-              <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-                {engine.slides.map((s, si) => (
-                  <button
-                    key={si}
-                    onClick={() => setActiveSlide(si)}
-                    className={`whitespace-nowrap text-xs px-3 py-1.5 rounded-md border transition-colors ${
-                      activeSlide === si
-                        ? 'bg-purple-50 border-[hsl(264,67%,52%)]/30 text-[hsl(264,67%,52%)] font-semibold'
-                        : 'bg-gray-50 border-gray-100 text-gray-500 hover:bg-gray-100'
-                    }`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Core Capabilities (layered) ── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-10">Engine Capabilities</h2>
+          <div className="space-y-3">
+            {capabilityLayers.map((layer, li) => {
+              const barColor = layer.bgColor === 'bg-purple-50' ? 'bg-[hsl(264,67%,52%)]' : layer.bgColor === 'bg-emerald-50' ? 'bg-[hsl(152,55%,42%)]' : layer.bgColor === 'bg-blue-50' ? 'bg-blue-500' : 'bg-gray-400'
+              return (
+                <div key={li} className="flex items-center gap-4">
+                  {/* Layer label — fixed width, left-aligned */}
+                  <div className="w-28 shrink-0 flex items-center gap-2">
+                    <div className={`w-5 h-0.5 rounded-full ${barColor}`} />
+                    <span className={`text-[11px] font-bold uppercase tracking-widest ${layer.color} whitespace-nowrap`}>{layer.layer}</span>
+                  </div>
+                  {/* 4 capability cards fill the remaining space */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 flex-1">
+                    {layer.items.map((item, ii) => (
+                      <div
+                        key={ii}
+                        className={`flex items-center gap-2.5 px-3 py-3 rounded-lg border border-gray-100 ${layer.bgColor}/40 hover:${layer.bgColor} transition-all`}
+                      >
+                        <div className={`w-7 h-7 rounded-md ${layer.bgColor} flex items-center justify-center shrink-0`}>
+                          <item.icon className={`w-3.5 h-3.5 ${layer.color}`} />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

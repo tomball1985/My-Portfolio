@@ -12,7 +12,7 @@ const campaigns = [
     summary: 'Global brand campaign and hybrid festival platform combining in-person experience with virtual reach to drive brand awareness and pipeline generation across multiple years.',
     stats: [
       { label: 'Pipeline Generated', value: '£7.68M' },
-      { label: 'Revenue', value: '£1.45M' },
+      { label: 'Revenue Generated', value: '£1.45M' },
       { label: 'Recognition', value: 'Award-winning' },
     ],
     color: 'purple',
@@ -31,13 +31,13 @@ const campaigns = [
   },
   {
     title: 'Omnichannel Difference',
-    company: 'Emarsys',
+    company: 'SAP Emarsys',
     type: 'integrated' as const,
     tags: ['Product', 'Integrated', 'Analyst', 'Global'],
     summary: 'Product-led integrated campaign focused on omnichannel marketing differentiation, combining analyst research, thought leadership, paid media and content syndication across regions.',
     stats: [
       { label: 'Pipeline Generated', value: '£671K' },
-      { label: 'ARR', value: '£190K' },
+      { label: 'Revenue Generated', value: '£190K' },
       { label: 'Positioning', value: 'Analyst-led' },
     ],
     color: 'green',
@@ -88,8 +88,8 @@ const campaigns = [
     ],
     color: 'green',
     images: [
-      { src: '/campaigns/defining-digital-experience/1.png', label: 'Research report' },
-      { src: '/campaigns/defining-digital-experience/2.png', label: 'Brian Solis partnership' },
+      { src: '/campaigns/defining-digital-experience/DX1.png', label: 'Research report' },
+      { src: '/campaigns/defining-digital-experience/DX2.png', label: 'Brian Solis partnership' },
       { src: '/campaigns/defining-digital-experience/3.png', label: 'CX Network media' },
       { src: '/campaigns/defining-digital-experience/4.png', label: 'HotTopics video series' },
     ],
@@ -97,9 +97,9 @@ const campaigns = [
   {
     title: 'Digital Body Language',
     company: 'Clicktale',
-    type: 'brand' as const,
-    tags: ['Brand', 'Positioning', 'Integrated', 'Global'],
-    summary: 'Brand positioning campaign telling the story of digital customer behaviour. Integrated across brand, product and demand functions globally.',
+    type: 'demand' as const,
+    tags: ['Product', 'Demand', 'Integrated'],
+    summary: 'Product-led demand generation campaign elevating unique capability and landing new concept of digital body language through content, events and PR.',
     stats: [
       { label: 'Hand Raises', value: '30% uplift' },
       { label: 'Positioning', value: 'Global platform' },
@@ -107,9 +107,47 @@ const campaigns = [
     ],
     color: 'purple',
     images: [
-      { src: '/campaigns/digital-body-language/1.jpg', label: 'Brand creative' },
       { src: '/campaigns/digital-body-language/2.png', label: 'Campaign landing page' },
+      { src: '/campaigns/digital-body-language/4.png', label: 'Campaign creative' },
+      { src: '/campaigns/digital-body-language/5.png', label: 'Campaign creative' },
+      { src: '/campaigns/digital-body-language/1.jpg', label: 'Brand creative' },
       { src: '/campaigns/digital-body-language/3.jpeg', label: 'Digital assets' },
+    ],
+  },
+  {
+    title: 'We Tell The Story',
+    company: 'Clicktale',
+    type: 'integrated' as const,
+    tags: ['Brand', 'Product', 'Integrated'],
+    summary: 'Re-brand and new product positioning including internal enablement and external launch aligned to SKO. Led to acquisition by ContentSquare.',
+    stats: [
+      { label: 'QoQ Pipeline Creation', value: '30% Increase' },
+      { label: 'SKO Brand Survey', value: '95% Confidence' },
+      { label: 'Product Page Dwell Time', value: '50% Uplift' },
+    ],
+    color: 'green',
+    images: [
+      { src: '/campaigns/we-tell-the-story/1.png', label: 'Re-brand creative' },
+      { src: '/campaigns/we-tell-the-story/2.png', label: 'Product positioning asset' },
+      { src: '/campaigns/we-tell-the-story/3.png', label: 'SKO enablement' },
+      { src: '/campaigns/we-tell-the-story/4.png', label: 'Campaign asset' },
+    ],
+  },
+  {
+    title: 'Power of 2',
+    company: 'ContentSquare',
+    type: 'integrated' as const,
+    tags: ['Brand', 'Integrated', 'M&A', 'PR', 'Customer'],
+    summary: 'M&A campaign connected to announcement followed by customer-led communications, cross-sell and up-sell campaign across both Clicktale & ContentSquare customer bases.',
+    stats: [
+      { label: 'Announcement', value: 'M&A launch' },
+      { label: 'Activation', value: 'Customer-led' },
+      { label: 'Cross-sell & up-sell', value: 'Expansion' },
+    ],
+    color: 'purple',
+    images: [
+      { src: '/campaigns/power-of-2/1.png', label: 'M&A announcement creative' },
+      { src: '/campaigns/power-of-2/2.png', label: 'Customer communications' },
     ],
   },
   {
@@ -137,13 +175,13 @@ const campaigns = [
   },
   {
     title: 'Mobile Wallet',
-    company: 'Emarsys',
+    company: 'SAP Emarsys',
     type: 'product' as const,
     tags: ['Product Launch', 'Integrated', 'Global'],
     summary: 'Integrated product launch campaign for a new mobile wallet capability focusing on existing customers. Leveraged at the top of funnel for short burst campaign across PR, demand gen & digital.',
     stats: [
       { label: 'Cross-sell Pipeline', value: '£533K ARR' },
-      { label: 'NBS Revenue', value: '£60K ARR' },
+      { label: 'NBS Revenue Generated', value: '£60K' },
       { label: 'ROAS', value: '4x' },
     ],
     color: 'purple',
@@ -166,9 +204,9 @@ const campaigns = [
     tags: ['Consumer', 'Social', 'Brand'],
     summary: 'Consumer demand campaign (agency-side) delivering social-first and driving ticket sales for one of London\'s iconic cultural venues.',
     stats: [
-      { label: 'Approach', value: 'Social-first' },
-      { label: 'Recognition', value: 'Award-winning' },
-      { label: 'Sector', value: 'Arts & culture' },
+      { label: 'Personalization', value: 'At scale' },
+      { label: 'Online ticket sales', value: 'Record' },
+      { label: 'The Drum', value: 'Award-winning' },
     ],
     color: 'green',
     images: [
@@ -188,16 +226,16 @@ const campaigns = [
     ],
     color: 'purple',
     images: [
+      { src: '/campaigns/customer-loyalty/4.png', label: 'Campaign creative' },
       { src: '/campaigns/customer-loyalty/1.jpg', label: 'Research report' },
       { src: '/campaigns/customer-loyalty/2.png', label: 'Media coverage' },
       { src: '/campaigns/customer-loyalty/3.webp', label: 'Event activation' },
-      { src: '/campaigns/customer-loyalty/4.png', label: 'Campaign creative' },
       { src: '/campaigns/customer-loyalty/5.jpeg', label: 'Thought leadership asset' },
       { src: '/campaigns/customer-loyalty/6.jpeg', label: 'Paid media creative' },
     ],
   },
   {
-    title: 'AI',
+    title: 'AI Power',
     company: 'SAP Emarsys',
     type: 'product' as const,
     tags: ['Brand', 'Positioning', 'Integrated', 'Global'],
@@ -222,24 +260,6 @@ const campaigns = [
     ],
   },
   {
-    title: 'Consumer Products',
-    company: 'SAP Emarsys',
-    type: 'integrated' as const,
-    tags: ['Demand Gen', 'Product', 'Integrated'],
-    summary: 'Industry expansion campaign driving growth through new product messaging and multi-channel activation.',
-    stats: [
-      { label: 'Pipeline', value: 'TBC' },
-      { label: 'Revenue', value: 'TBC' },
-      { label: 'Type', value: 'Industry expansion' },
-    ],
-    color: 'purple',
-    images: [
-      { src: '', label: 'Campaign creative' },
-      { src: '', label: 'Multi-channel activation' },
-      { src: '', label: 'Product messaging' },
-    ],
-  },
-  {
     title: 'Retail Talks',
     company: 'Emarsys',
     type: 'demand' as const,
@@ -252,8 +272,8 @@ const campaigns = [
     ],
     color: 'green',
     images: [
-      { src: '/campaigns/retail-talks/3.webp', label: 'Series branding' },
       { src: '/campaigns/retail-talks/4.jpg', label: 'Episode promotion' },
+      { src: '/campaigns/retail-talks/3.webp', label: 'Series branding' },
       { src: '/campaigns/retail-talks/5.jpg', label: 'Series campaign asset' },
     ],
   },
@@ -270,9 +290,9 @@ const campaigns = [
     ],
     color: 'purple',
     images: [
-      { src: '', label: 'Use case content' },
-      { src: '', label: 'Product release assets' },
-      { src: '', label: 'TOFU activation' },
+      { src: '/campaigns/product-release/2.png', label: 'Product release assets' },
+      { src: '/campaigns/product-release/3.png', label: 'Use case content' },
+      { src: '/campaigns/product-release/1.png', label: 'TOFU activation' },
     ],
   },
   {
@@ -288,7 +308,7 @@ const campaigns = [
     ],
     color: 'green',
     images: [
-      { src: '', label: 'Customer advocacy assets' },
+      { src: '/campaigns/customer-stories/1714407130052.gif', label: 'Customer advocacy animation' },
       { src: '', label: 'Social activation' },
       { src: '', label: 'Employee enablement' },
     ],
@@ -497,14 +517,24 @@ export function Campaigns() {
                     <p className="text-sm text-gray-500 leading-relaxed">{c.summary}</p>
                   </div>
 
-                  {/* Stats strip */}
-                  <div className="grid grid-cols-3 gap-px bg-gray-100 mt-6">
-                    {c.stats.map((s, j) => (
-                      <div key={j} className="bg-gray-50 p-4 text-center">
-                        <div className={`text-sm font-bold ${colors.statText}`}>{s.value}</div>
-                        <div className="text-xs text-gray-400 mt-0.5">{s.label}</div>
-                      </div>
-                    ))}
+                  {/* Stats strip — tonal block */}
+                  <div className={`${colors.statBg} mt-6 px-4 py-5`}>
+                    <div className="grid grid-cols-3 gap-3">
+                      {c.stats.map((s, j) => {
+                        const sizeClass =
+                          s.value.length > 18 ? 'text-sm' : s.value.length > 13 ? 'text-base' : 'text-lg'
+                        return (
+                          <div key={j} className="text-center">
+                            <div className={`${sizeClass} font-extrabold tracking-tight ${colors.statText} leading-tight`}>
+                              {s.value}
+                            </div>
+                            <div className="text-[11px] text-gray-500 mt-1.5 uppercase tracking-wider">
+                              {s.label}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
                   </div>
 
                   {/* Image viewer */}

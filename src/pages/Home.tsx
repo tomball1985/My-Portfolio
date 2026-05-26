@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import {
   ArrowRight, TrendingUp, Users, Target, Zap, BarChart3,
-  Layers, Briefcase,
+  Layers, Briefcase, Play,
 } from 'lucide-react'
 
 type Route = 'home' | 'engines' | 'campaigns' | 'projects' | 'teams' | 'about' | 'connect'
@@ -17,201 +17,20 @@ const scrollTo = (id: string) => {
 interface Belief {
   title: string
   accent: string
-  iconBg: string
-  svg: React.JSX.Element
+  image: string
 }
 
 const beliefs: Belief[] = [
-  {
-    title: 'Revenue Aligned',
-    accent: 'from-pink-500 to-purple-600',
-    iconBg: 'bg-pink-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="60" cy="40" r="28" stroke="url(#ra1)" strokeWidth="2.5" opacity="0.3" />
-        <circle cx="60" cy="40" r="18" stroke="url(#ra1)" strokeWidth="2" opacity="0.5" />
-        <circle cx="60" cy="40" r="6" fill="url(#ra1)" />
-        <path d="M30 55 L50 35 L70 42 L90 20" stroke="url(#ra1)" strokeWidth="2.5" strokeLinecap="round" />
-        <circle cx="90" cy="20" r="3" fill="#ec4899" />
-        <text x="86" y="16" fill="#ec4899" fontSize="8" fontWeight="bold">$</text>
-        <defs><linearGradient id="ra1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#9333ea"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Brand <> Demand',
-    accent: 'from-purple-500 to-pink-500',
-    iconBg: 'bg-purple-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="44" cy="40" r="22" stroke="#a855f7" strokeWidth="2" opacity="0.6" />
-        <circle cx="76" cy="40" r="22" stroke="#ec4899" strokeWidth="2" opacity="0.6" />
-        <path d="M58 25 Q60 40 58 55" stroke="url(#bd1)" strokeWidth="2.5" opacity="0.8" />
-        <path d="M62 25 Q60 40 62 55" stroke="url(#bd1)" strokeWidth="2.5" opacity="0.8" />
-        <text x="30" y="43" fill="#a855f7" fontSize="7" fontWeight="bold" opacity="0.7">BRAND</text>
-        <text x="67" y="43" fill="#ec4899" fontSize="7" fontWeight="bold" opacity="0.7">DEMAND</text>
-        <path d="M54 38 L66 38 M54 42 L66 42" stroke="url(#bd1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
-        <defs><linearGradient id="bd1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Product AND Market-ing Fit',
-    accent: 'from-indigo-500 to-pink-500',
-    iconBg: 'bg-indigo-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <rect x="20" y="22" width="32" height="36" rx="4" stroke="#6366f1" strokeWidth="2" opacity="0.6" />
-        <rect x="68" y="22" width="32" height="36" rx="4" stroke="#ec4899" strokeWidth="2" opacity="0.6" />
-        <text x="26" y="44" fill="#6366f1" fontSize="6.5" fontWeight="bold" opacity="0.7">PRODUCT</text>
-        <text x="72" y="44" fill="#ec4899" fontSize="6.5" fontWeight="bold" opacity="0.7">MARKET</text>
-        <path d="M52 32 L68 32 M52 40 L68 40 M52 48 L68 48" stroke="url(#pmf1)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
-        <path d="M56 36 L64 36 M56 44 L64 44" stroke="url(#pmf1)" strokeWidth="2.5" strokeLinecap="round" />
-        <circle cx="60" cy="40" r="3" fill="url(#pmf1)" opacity="0.8" />
-        <defs><linearGradient id="pmf1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#6366f1"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Systems Thinking & AI',
-    accent: 'from-purple-500 to-indigo-600',
-    iconBg: 'bg-purple-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="60" cy="40" r="8" stroke="url(#st1)" strokeWidth="2" />
-        <circle cx="35" cy="22" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.6" />
-        <circle cx="85" cy="22" r="5" stroke="#4f46e5" strokeWidth="1.5" opacity="0.6" />
-        <circle cx="35" cy="58" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.6" />
-        <circle cx="85" cy="58" r="5" stroke="#4f46e5" strokeWidth="1.5" opacity="0.6" />
-        <line x1="40" y1="25" x2="53" y2="35" stroke="#a855f7" strokeWidth="1.5" opacity="0.4" />
-        <line x1="80" y1="25" x2="67" y2="35" stroke="#4f46e5" strokeWidth="1.5" opacity="0.4" />
-        <line x1="40" y1="55" x2="53" y2="45" stroke="#a855f7" strokeWidth="1.5" opacity="0.4" />
-        <line x1="80" y1="55" x2="67" y2="45" stroke="#4f46e5" strokeWidth="1.5" opacity="0.4" />
-        <line x1="35" y1="27" x2="35" y2="53" stroke="#a855f7" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <line x1="85" y1="27" x2="85" y2="53" stroke="#4f46e5" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <line x1="40" y1="22" x2="80" y2="22" stroke="url(#st1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <line x1="40" y1="58" x2="80" y2="58" stroke="url(#st1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <text x="54" y="43" fill="url(#st1)" fontSize="8" fontWeight="bold">AI</text>
-        <defs><linearGradient id="st1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#4f46e5"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Demand Engine',
-    accent: 'from-purple-500 to-pink-500',
-    iconBg: 'bg-purple-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="60" cy="40" r="24" stroke="url(#de1)" strokeWidth="2" opacity="0.3" />
-        <circle cx="60" cy="40" r="16" stroke="url(#de1)" strokeWidth="2" opacity="0.5" />
-        <circle cx="60" cy="40" r="8" fill="url(#de1)" opacity="0.3" />
-        <path d="M60 16 L60 10 M60 64 L60 70 M36 40 L30 40 M84 40 L90 40" stroke="url(#de1)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
-        <path d="M56 36 L64 40 L56 44 Z" fill="url(#de1)" />
-        <path d="M44 28 L48 32" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-        <path d="M76 28 L72 32" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-        <path d="M44 52 L48 48" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-        <path d="M76 52 L72 48" stroke="url(#de1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-        <defs><linearGradient id="de1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Content = Lifeblood',
-    accent: 'from-pink-500 to-red-500',
-    iconBg: 'bg-pink-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <path d="M60 22 C60 22, 48 12, 38 22 C28 32, 38 46, 60 62 C82 46, 92 32, 82 22 C72 12, 60 22, 60 22Z" stroke="url(#cl1)" strokeWidth="2.5" opacity="0.6" />
-        <path d="M60 30 C60 30, 52 24, 46 30 C40 36, 46 44, 60 54 C74 44, 80 36, 74 30 C68 24, 60 30, 60 30Z" stroke="url(#cl1)" strokeWidth="1.5" opacity="0.4" />
-        <path d="M50 38 L55 38 M52 34 L52 42" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-        <path d="M60 38 L70 38" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-        <path d="M60 42 L68 42" stroke="url(#cl1)" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-        <circle cx="60" cy="40" r="2" fill="url(#cl1)" opacity="0.8" />
-        <defs><linearGradient id="cl1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#ef4444"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Customer Flywheel',
-    accent: 'from-purple-600 to-pink-500',
-    iconBg: 'bg-purple-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="60" cy="40" r="26" stroke="url(#cf1)" strokeWidth="2" opacity="0.2" />
-        <path d="M60 14 A26 26 0 0 1 86 40" stroke="url(#cf1)" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M86 40 A26 26 0 0 1 60 66" stroke="#ec4899" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
-        <path d="M60 66 A26 26 0 0 1 34 40" stroke="#a855f7" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
-        <path d="M34 40 A26 26 0 0 1 60 14" stroke="#9333ea" strokeWidth="2.5" strokeLinecap="round" opacity="0.3" />
-        <polygon points="84,34 90,40 84,46" fill="url(#cf1)" opacity="0.8" />
-        <polygon points="66,64 60,70 54,64" fill="#ec4899" opacity="0.6" />
-        <polygon points="36,46 30,40 36,34" fill="#a855f7" opacity="0.4" />
-        <circle cx="60" cy="40" r="10" stroke="url(#cf1)" strokeWidth="1.5" opacity="0.5" />
-        <circle cx="60" cy="40" r="3" fill="url(#cf1)" />
-        <defs><linearGradient id="cf1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#9333ea"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Community & Experiences',
-    accent: 'from-purple-500 to-pink-500',
-    iconBg: 'bg-purple-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="60" cy="30" r="6" stroke="url(#ce1)" strokeWidth="2" />
-        <circle cx="40" cy="48" r="5" stroke="#a855f7" strokeWidth="1.5" opacity="0.7" />
-        <circle cx="80" cy="48" r="5" stroke="#ec4899" strokeWidth="1.5" opacity="0.7" />
-        <circle cx="30" cy="34" r="4" stroke="#a855f7" strokeWidth="1.5" opacity="0.5" />
-        <circle cx="90" cy="34" r="4" stroke="#ec4899" strokeWidth="1.5" opacity="0.5" />
-        <line x1="54" y1="32" x2="44" y2="44" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.4" />
-        <line x1="66" y1="32" x2="76" y2="44" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.4" />
-        <line x1="36" y1="38" x2="38" y2="44" stroke="#a855f7" strokeWidth="1" opacity="0.3" />
-        <line x1="84" y1="38" x2="82" y2="44" stroke="#ec4899" strokeWidth="1" opacity="0.3" />
-        <line x1="45" y1="48" x2="75" y2="48" stroke="url(#ce1)" strokeWidth="1" opacity="0.3" strokeDasharray="2 2" />
-        <path d="M48 60 Q60 68 72 60" stroke="url(#ce1)" strokeWidth="1.5" opacity="0.5" strokeLinecap="round" />
-        <circle cx="60" cy="30" r="2.5" fill="url(#ce1)" opacity="0.6" />
-        <defs><linearGradient id="ce1" x1="0" y1="0" x2="1" y2="0"><stop stopColor="#a855f7"/><stop offset="1" stopColor="#ec4899"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'GTM Foundation & RevOps',
-    accent: 'from-pink-500 to-purple-600',
-    iconBg: 'bg-pink-500/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <rect x="30" y="52" width="60" height="8" rx="2" stroke="url(#gr1)" strokeWidth="2" opacity="0.6" />
-        <rect x="36" y="40" width="48" height="8" rx="2" stroke="url(#gr1)" strokeWidth="1.5" opacity="0.5" />
-        <rect x="42" y="28" width="36" height="8" rx="2" stroke="url(#gr1)" strokeWidth="1.5" opacity="0.4" />
-        <polygon points="60,14 72,24 48,24" stroke="url(#gr1)" strokeWidth="1.5" fill="url(#gr1)" fillOpacity="0.15" />
-        <line x1="60" y1="14" x2="60" y2="60" stroke="url(#gr1)" strokeWidth="1" opacity="0.2" strokeDasharray="2 2" />
-        <circle cx="60" cy="18" r="2" fill="url(#gr1)" opacity="0.8" />
-        <text x="40" y="58" fill="url(#gr1)" fontSize="5.5" fontWeight="bold" opacity="0.5">FOUNDATION</text>
-        <defs><linearGradient id="gr1" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#ec4899"/><stop offset="1" stopColor="#9333ea"/></linearGradient></defs>
-      </svg>
-    ),
-  },
-  {
-    title: 'Remember the Humans',
-    accent: 'from-purple-400 to-pink-400',
-    iconBg: 'bg-purple-400/20',
-    svg: (
-      <svg viewBox="0 0 120 80" fill="none" className="w-full h-full">
-        <circle cx="48" cy="32" r="8" stroke="url(#rh1)" strokeWidth="2" opacity="0.6" />
-        <path d="M48 40 Q48 52 48 56" stroke="url(#rh1)" strokeWidth="2" opacity="0.5" />
-        <path d="M40 46 L48 44 L56 46" stroke="url(#rh1)" strokeWidth="1.5" opacity="0.4" strokeLinecap="round" />
-        <circle cx="72" cy="32" r="8" stroke="url(#rh1)" strokeWidth="2" opacity="0.6" />
-        <path d="M72 40 Q72 52 72 56" stroke="url(#rh1)" strokeWidth="2" opacity="0.5" />
-        <path d="M64 46 L72 44 L80 46" stroke="url(#rh1)" strokeWidth="1.5" opacity="0.4" strokeLinecap="round" />
-        <path d="M56 38 L64 38" stroke="url(#rh1)" strokeWidth="2" opacity="0.3" />
-        <path d="M52 62 Q60 70 68 62" stroke="url(#rh1)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
-        <circle cx="45" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
-        <circle cx="51" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
-        <circle cx="69" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
-        <circle cx="75" cy="30" r="1.5" fill="url(#rh1)" opacity="0.5" />
-        <defs><linearGradient id="rh1" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#c084fc"/><stop offset="1" stopColor="#f472b6"/></linearGradient></defs>
-      </svg>
-    ),
-  },
+  { title: 'Revenue Aligned',           accent: 'from-pink-500 to-purple-600',   image: '/Core_Principles_Images/65.jpg' },
+  { title: 'Brand <> Demand',           accent: 'from-purple-500 to-pink-500',   image: '/Core_Principles_Images/69.jpg' },
+  { title: 'Product AND Market-ing Fit',accent: 'from-indigo-500 to-pink-500',   image: '/Core_Principles_Images/74.jpg' },
+  { title: 'Systems Thinking & AI',     accent: 'from-purple-500 to-indigo-600', image: '/Core_Principles_Images/75.jpg' },
+  { title: 'Demand Engine',             accent: 'from-purple-500 to-pink-500',   image: '/Core_Principles_Images/78.jpg' },
+  { title: 'Content = Lifeblood',       accent: 'from-pink-500 to-red-500',      image: '/Core_Principles_Images/79.jpg' },
+  { title: 'Customer Flywheel',         accent: 'from-purple-600 to-pink-500',   image: '/Core_Principles_Images/80.jpg' },
+  { title: 'Community & Experiences',   accent: 'from-purple-500 to-pink-500',   image: '/Core_Principles_Images/81.jpg' },
+  { title: 'GTM Foundation & RevOps',   accent: 'from-pink-500 to-purple-600',   image: '/Core_Principles_Images/82.jpg' },
+  { title: 'Remember the Humans',       accent: 'from-purple-400 to-pink-400',   image: '/Core_Principles_Images/83.jpg' },
 ]
 
 /* ── Company logos ── */
@@ -219,7 +38,7 @@ import { logos } from '../logoData'
 
 /* ── Component ── */
 
-export function Home({ navigate }: { navigate: (r: Route) => void }) {
+export function Home({ navigate }: { navigate: (r: Route, anchor?: string) => void }) {
   const [beliefIdx, setBeliefIdx] = useState(0)
 
   const nextBelief = useCallback(() => {
@@ -247,7 +66,7 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
                 <span className="text-[hsl(264,67%,52%)]">Tom</span>
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
-                I build marketing engines that create measurable pipeline and revenue. 15+ years across B2B SaaS &amp; Service — from startup, scale up and through acquisition to scale at SAP.
+                I build marketing engines that fuel revenue growth and the teams (human + agent) that run them.
               </p>
               <div className="flex flex-wrap gap-3">
                 <button
@@ -269,8 +88,8 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-purple-200/50">
                 <img
-                  src="/tom-hero.gif"
-                  alt="Tom Ball waving"
+                  src="/headshot.png"
+                  alt="Tom Ball"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -289,12 +108,13 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
           <div className="grid grid-cols-3 md:grid-cols-6 gap-y-6 gap-x-4">
             {logos.map(l => {
               const aspect = l.w / 80
+              const scale = l.scale ?? 1
               // Square / narrow logos get taller max-h so they aren't tiny
               // Wide logos get a wider max-w so they aren't squished
-              const maxH = aspect < 2 ? 36 : aspect < 2.5 ? 30 : 26
-              const maxW = aspect > 5 ? 140 : 120
+              const maxH = (aspect < 2 ? 44 : aspect < 2.5 ? 38 : 34) * scale
+              const maxW = (aspect > 5 ? 180 : aspect > 4 ? 160 : 140) * scale
               return (
-                <div key={l.name} className="flex items-center justify-center h-10">
+                <div key={l.name} className="flex items-center justify-center h-12">
                   <img
                     src={l.src}
                     alt={l.name}
@@ -312,7 +132,7 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Impact at a glance</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Real Marketing Impact</h2>
             <p className="text-gray-500 max-w-lg mx-auto">Highlights from 5 years leading marketing at SAP Emarsys, navigating acquisition, integration, and 20% YoY budget reductions.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -363,7 +183,7 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1.5">Engines</h3>
                 <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                  The systems, frameworks, and methodologies I've built — from demand waterfalls to always-on programs.
+                  Full stack marketing engines built to drive brand, pipeline and revenue in B2B SaaS and Services.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[hsl(264,67%,52%)] group-hover:gap-3 transition-all">
                   Explore <ArrowRight className="w-4 h-4" />
@@ -397,7 +217,7 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1.5">Projects</h3>
                 <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                  Operational and change projects — MAP migrations, SAP integration, and strategic transformations.
+                  From transformation to optimization across programs, projects and operations.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 group-hover:gap-3 transition-all">
                   Explore <ArrowRight className="w-4 h-4" />
@@ -414,7 +234,7 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1.5">Teams</h3>
                 <p className="text-xs text-gray-500 mb-3 leading-relaxed">
-                  How I build and lead teams — from agency roots and rugby culture to human + AI operating models.
+                  From agile agency services to in-house performance-led marketing - people, process and technology.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-amber-600 group-hover:gap-3 transition-all">
                   Explore <ArrowRight className="w-4 h-4" />
@@ -438,14 +258,22 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
                 The way I think about bringing marketing to life and creating value. How I approach revenue alignment, systems thinking, brand and demand integration, and building engines that scale.
               </p>
 
-              {/* CTA */}
-              <button
-                onClick={() => scrollTo('ethos-carousel')}
-                className="flex items-center gap-2 text-sm font-medium transition-colors group"
-              >
-                <span className="text-white">Watch the video</span>
-                <ArrowRight className="w-4 h-4 text-[hsl(264,67%,52%)] group-hover:translate-x-1 transition-transform" />
-              </button>
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => navigate('about')}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(264,67%,52%)] text-white font-medium rounded-lg hover:bg-[hsl(264,67%,46%)] transition-colors shadow-lg shadow-purple-900/30"
+                >
+                  Learn more <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => navigate('about', 'core-principles')}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 text-white font-medium rounded-lg hover:bg-white/10 hover:border-white/30 transition-colors backdrop-blur-sm"
+                >
+                  <Play className="w-4 h-4 fill-white" />
+                  Watch videos
+                </button>
+              </div>
             </div>
 
             {/* Rotating beliefs carousel */}
@@ -453,24 +281,12 @@ export function Home({ navigate }: { navigate: (r: Route) => void }) {
               <div className="relative aspect-video rounded-xl bg-gray-800 border border-gray-700 overflow-hidden">
                 {/* Gradient accent bar */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${beliefs[beliefIdx].accent}`} />
-                {/* SVG illustration */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                  <div className="w-3/4 h-3/4">
-                    {beliefs[beliefIdx].svg}
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-start justify-end px-8 pb-6">
-                  <p
-                    className="text-xl md:text-2xl font-bold text-white leading-snug transition-opacity duration-500"
-                    style={{ fontFamily: 'Space Grotesk' }}
-                  >
-                    {beliefs[beliefIdx].title}
-                  </p>
-                  <div className="absolute bottom-3 right-4 text-[10px] text-gray-600">
-                    {String(beliefIdx + 1).padStart(2, '0')} / {beliefs.length}
-                  </div>
-                </div>
+                {/* Image illustration */}
+                <img
+                  src={beliefs[beliefIdx].image}
+                  alt={beliefs[beliefIdx].title}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                />
                 {/* Decorative gradient orb */}
                 <div className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-gradient-to-br ${beliefs[beliefIdx].accent} opacity-20 blur-2xl transition-all duration-700`} />
               </div>
