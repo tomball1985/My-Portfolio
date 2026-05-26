@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
+import { Analytics } from '@vercel/analytics/react'
 import { Nav } from './components/layout/Nav'
 import { Footer } from './components/layout/Footer'
 import { Home } from './pages/Home'
@@ -60,6 +61,7 @@ function App() {
         {pages[route]}
       </main>
       <Footer navigate={navigate} />
+      <Analytics />
     </div>
   )
 }
